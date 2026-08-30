@@ -1,13 +1,13 @@
-import { HeroSearch } from "@/components/hero-search";
-import { InfoTabs } from "@/components/info-tabs";
-import { QuickLinks } from "@/components/quick-links";
-import { SidebarPopularCharacters } from "@/components/sidebar-popular-characters";
-import { SidebarServerStats } from "@/components/sidebar-server-stats";
-import { SidebarSiteNotices } from "@/components/sidebar-site-notices";
-import { SidebarSiteStats } from "@/components/sidebar-site-stats";
-import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "@/components/site-header";
-import { WeeklySchedule } from "@/components/weekly-schedule";
+import {HeroSearch} from '@/components/hero-search';
+import {InfoTabs} from '@/components/info-tabs';
+import {QuickLinks} from '@/components/quick-links';
+import {SidebarPopularCharacters} from '@/components/sidebar-popular-characters';
+import {SidebarServerStats} from '@/components/sidebar-server-stats';
+import {SidebarSiteNotices} from '@/components/sidebar-site-notices';
+import {SidebarSiteStats} from '@/components/sidebar-site-stats';
+import {SiteFooter} from '@/components/site-footer';
+import {SiteHeader} from '@/components/site-header';
+import {WeeklySchedule} from '@/components/weekly-schedule';
 
 export default function Home() {
   return (

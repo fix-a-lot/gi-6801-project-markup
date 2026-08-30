@@ -1,5 +1,5 @@
-import Link from "next/link";
-import { popularCharacters } from "@/lib/mock-data";
+import Link from 'next/link';
+import {popularCharacters} from '@/lib/mock-data';
 
 export function SidebarPopularCharacters() {
   return (
@@ -15,12 +15,15 @@ export function SidebarPopularCharacters() {
         <span className="text-[11px] text-muted">TOP 10</span>
       </div>
       <ol className="divide-y divide-border">
-        {popularCharacters.map((c) => (
+        {popularCharacters.map(c => (
           <li key={c.rank}>
-            <Link href={`/character/${encodeURIComponent(c.name)}`} className="flex items-center gap-2.5 px-3 py-2 hover:bg-surface-2">
+            <Link
+              href={`/character/${encodeURIComponent(c.name)}`}
+              className="flex items-center gap-2.5 px-3 py-2 hover:bg-surface-2"
+            >
               <span
                 className={`w-4 shrink-0 text-center font-mono text-[12px] font-bold ${
-                  c.rank <= 3 ? "text-primary" : "text-muted"
+                  c.rank <= 3 ? 'text-primary' : 'text-muted'
                 }`}
               >
                 {c.rank}

@@ -1,16 +1,9 @@
-import Link from "next/link";
-import { Search } from "lucide-react";
+import Link from 'next/link';
+import {Search} from 'lucide-react';
 
-const POPULAR_SEARCHES = [
-  "은빛부검사",
-  "카제하야",
-  "무명의창잡이",
-  "달빛서포터",
-  "칼바람소서리스",
-  "붉은칼날데모닉",
-];
+const POPULAR_SEARCHES = ['은빛부검사', '카제하야', '무명의창잡이', '달빛서포터', '칼바람소서리스', '붉은칼날데모닉'];
 
-const SERVERS = ["전체 서버", "루페온", "실리안", "아만", "카마인", "니나브", "카제로스"];
+const SERVERS = ['전체 서버', '루페온', '실리안', '아만', '카마인', '니나브', '카제로스'];
 
 export function HeroSearch() {
   return (
@@ -32,7 +25,7 @@ export function HeroSearch() {
             className="h-11 rounded-sm border border-border bg-background px-3 text-[13px] text-foreground focus:border-primary/60 focus:outline-none sm:w-40"
             defaultValue={SERVERS[0]}
           >
-            {SERVERS.map((server) => (
+            {SERVERS.map(server => (
               <option key={server} value={server}>
                 {server}
               </option>
@@ -62,7 +55,7 @@ export function HeroSearch() {
 
         <div className="mt-3 flex flex-wrap items-center gap-x-1.5 gap-y-1.5 text-[12px]">
           <span className="text-muted">인기 검색어</span>
-          {POPULAR_SEARCHES.map((name) => (
+          {POPULAR_SEARCHES.map(name => (
             <Link
               key={name}
               href={`/character/${encodeURIComponent(name)}`}

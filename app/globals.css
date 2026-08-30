@@ -1,8 +1,8 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme inline {
-  --font-sans: "Noto Sans KR", ui-sans-serif, system-ui, "Apple SD Gothic Neo", sans-serif;
-  --font-mono: "Nanum Gothic Coding", ui-monospace, "SFMono-Regular", monospace;
+  --font-sans: 'Noto Sans KR', ui-sans-serif, system-ui, 'Apple SD Gothic Neo', sans-serif;
+  --font-mono: 'Nanum Gothic Coding', ui-monospace, 'SFMono-Regular', monospace;
 
   --color-background: var(--background);
   --color-surface: var(--surface);

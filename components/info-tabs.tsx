@@ -1,23 +1,23 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import Link from "next/link";
-import type { NoticeCategory } from "@/lib/mock-data";
-import { noticeItems } from "@/lib/mock-data";
+import {useState} from 'react';
+import Link from 'next/link';
+import type {NoticeCategory} from '@/lib/mock-data';
+import {noticeItems} from '@/lib/mock-data';
 
-const CATEGORIES: NoticeCategory[] = ["공지", "이벤트", "쿠폰", "업데이트"];
+const CATEGORIES: NoticeCategory[] = ['공지', '이벤트', '쿠폰', '업데이트'];
 
 const BADGE_STYLES: Record<NoticeCategory, string> = {
-  공지: "text-muted bg-surface-2",
-  이벤트: "text-primary bg-primary/10",
-  쿠폰: "text-rise bg-rise/10",
-  업데이트: "text-secondary bg-secondary/10",
+  공지: 'text-muted bg-surface-2',
+  이벤트: 'text-primary bg-primary/10',
+  쿠폰: 'text-rise bg-rise/10',
+  업데이트: 'text-secondary bg-secondary/10'
 };
 
 export function InfoTabs() {
-  const [active, setActive] = useState<NoticeCategory>("공지");
+  const [active, setActive] = useState<NoticeCategory>('공지');
 
-  const items = noticeItems.filter((item) => item.category === active).slice(0, 6);
+  const items = noticeItems.filter(item => item.category === active).slice(0, 6);
 
   return (
     <section
@@ -27,7 +27,7 @@ export function InfoTabs() {
     >
       <div className="flex items-center justify-between border-b border-border px-3">
         <div role="tablist" aria-label="게임 정보 카테고리" className="flex gap-1">
-          {CATEGORIES.map((category) => (
+          {CATEGORIES.map(category => (
             <button
               key={category}
               type="button"
@@ -35,7 +35,7 @@ export function InfoTabs() {
               aria-selected={active === category}
               onClick={() => setActive(category)}
               className={`relative px-3 py-2.5 text-[13px] font-bold transition-colors ${
-                active === category ? "text-foreground" : "text-muted hover:text-foreground"
+                active === category ? 'text-foreground' : 'text-muted hover:text-foreground'
               }`}
             >
               {category}
@@ -58,7 +58,7 @@ export function InfoTabs() {
       </h2>
 
       <ul className="divide-y divide-border">
-        {items.map((item) => (
+        {items.map(item => (
           <li key={item.id}>
             <Link
               href={`/notice/${item.id}`}

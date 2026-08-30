@@ -1,29 +1,29 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import Link from "next/link";
-import { Compass, Flag, Ship, Skull, Swords } from "lucide-react";
-import type { ScheduleCategory } from "@/lib/mock-data";
-import { weeklySchedule } from "@/lib/mock-data";
+import {useState} from 'react';
+import Link from 'next/link';
+import {Compass, Flag, Ship, Skull, Swords} from 'lucide-react';
+import type {ScheduleCategory} from '@/lib/mock-data';
+import {weeklySchedule} from '@/lib/mock-data';
 
 const CATEGORY_ICON: Record<ScheduleCategory, typeof Compass> = {
   모험섬: Compass,
   필드보스: Flag,
   항해: Ship,
   카오스던전: Swords,
-  가디언토벌: Skull,
+  가디언토벌: Skull
 };
 
 const CATEGORY_COLOR: Record<ScheduleCategory, string> = {
-  모험섬: "text-primary",
-  필드보스: "text-fall",
-  항해: "text-secondary",
-  카오스던전: "text-muted",
-  가디언토벌: "text-fall",
+  모험섬: 'text-primary',
+  필드보스: 'text-fall',
+  항해: 'text-secondary',
+  카오스던전: 'text-muted',
+  가디언토벌: 'text-fall'
 };
 
 export function WeeklySchedule() {
-  const todayIndex = weeklySchedule.findIndex((d) => d.isToday);
+  const todayIndex = weeklySchedule.findIndex(d => d.isToday);
   const [activeDay, setActiveDay] = useState(todayIndex >= 0 ? todayIndex : 0);
   const selected = weeklySchedule[activeDay];
 
@@ -55,7 +55,9 @@ export function WeeklySchedule() {
             aria-selected={activeDay === i}
             onClick={() => setActiveDay(i)}
             className={`flex shrink-0 flex-col items-center rounded-sm px-3 py-1.5 text-center transition-colors ${
-              activeDay === i ? "bg-primary text-primary-foreground" : "text-muted hover:bg-surface-2 hover:text-foreground"
+              activeDay === i
+                ? 'bg-primary text-primary-foreground'
+                : 'text-muted hover:bg-surface-2 hover:text-foreground'
             }`}
           >
             <span className="text-[12px] font-bold">{d.day}</span>
@@ -65,7 +67,7 @@ export function WeeklySchedule() {
       </div>
 
       <ul className="no-scrollbar flex gap-2 overflow-x-auto px-3 py-3">
-        {selected.events.map((event) => {
+        {selected.events.map(event => {
           const Icon = CATEGORY_ICON[event.category];
           return (
             <li

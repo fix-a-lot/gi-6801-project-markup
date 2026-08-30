@@ -1,12 +1,12 @@
-import Link from "next/link";
-import { BarChart3, Coins, Trophy, Wrench } from "lucide-react";
-import { quickLinks, type QuickLink } from "@/lib/mock-data";
+import Link from 'next/link';
+import {BarChart3, Coins, Trophy, Wrench} from 'lucide-react';
+import {quickLinks, type QuickLink} from '@/lib/mock-data';
 
-const ICONS: Record<QuickLink["icon"], typeof Trophy> = {
+const ICONS: Record<QuickLink['icon'], typeof Trophy> = {
   ranking: Trophy,
   stats: BarChart3,
   market: Coins,
-  tools: Wrench,
+  tools: Wrench
 };
 
 export function QuickLinks() {
@@ -16,7 +16,7 @@ export function QuickLinks() {
       aria-label="주요 기능 바로가기"
       className="grid grid-cols-2 gap-2 sm:grid-cols-4"
     >
-      {quickLinks.map((link) => {
+      {quickLinks.map(link => {
         const Icon = ICONS[link.icon];
         return (
           <Link

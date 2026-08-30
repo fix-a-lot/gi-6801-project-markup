@@ -1,5 +1,5 @@
-import Link from "next/link";
-import { siteAnnouncements } from "@/lib/mock-data";
+import Link from 'next/link';
+import {siteAnnouncements} from '@/lib/mock-data';
 
 export function SidebarSiteNotices() {
   return (
@@ -12,7 +12,7 @@ export function SidebarSiteNotices() {
         ARKDEX 공지
       </h2>
       <ul className="flex flex-col gap-1.5">
-        {siteAnnouncements.map((notice) => (
+        {siteAnnouncements.map(notice => (
           <li key={notice.id}>
             <Link
               href={`/notice/site/${notice.id}`}

@@ -1,4 +1,4 @@
-import { siteStats } from "@/lib/mock-data";
+import {siteStats} from '@/lib/mock-data';
 
 export function SidebarSiteStats() {
   return (
@@ -11,7 +11,7 @@ export function SidebarSiteStats() {
         사이트 통계
       </h2>
       <dl className="grid grid-cols-2 gap-2">
-        {siteStats.map((stat) => (
+        {siteStats.map(stat => (
           <div key={stat.label} className="rounded-sm bg-surface-2 px-2.5 py-2">
             <dt className="truncate text-[11px] text-muted">{stat.label}</dt>
             <dd className="mt-0.5 font-mono text-[14px] font-bold text-foreground">

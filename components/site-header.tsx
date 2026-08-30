@@ -1,23 +1,23 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Menu, Search, Settings, X } from "lucide-react";
+import {useState} from 'react';
+import Link from 'next/link';
+import {usePathname} from 'next/navigation';
+import {Menu, Search, Settings, X} from 'lucide-react';
 
 const NAV_ITEMS = [
-  { label: "홈", href: "/" },
-  { label: "캐릭터", href: "/character" },
-  { label: "랭킹", href: "/ranking" },
-  { label: "통계", href: "/stats" },
-  { label: "시세", href: "/market" },
-  { label: "도구", href: "/tools" },
+  {label: '홈', href: '/'},
+  {label: '캐릭터', href: '/character'},
+  {label: '랭킹', href: '/ranking'},
+  {label: '통계', href: '/stats'},
+  {label: '시세', href: '/market'},
+  {label: '도구', href: '/tools'}
 ];
 
 // next.config.ts가 "/" → "/lostark"로 임시 리다이렉트하는 동안
 // 홈 네비게이션 항목은 두 경로 모두를 활성 상태로 인식해야 함.
 function isNavItemActive(pathname: string | null, href: string) {
-  if (href === "/") return pathname === "/" || pathname === "/lostark";
+  if (href === '/') return pathname === '/' || pathname === '/lostark';
   return pathname === href;
 }
 
@@ -41,17 +41,15 @@ export function SiteHeader() {
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex">
-          {NAV_ITEMS.map((item) => {
+          {NAV_ITEMS.map(item => {
             const isActive = isNavItemActive(pathname, item.href);
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                aria-current={isActive ? "page" : undefined}
+                aria-current={isActive ? 'page' : undefined}
                 className={`rounded-sm px-3 py-1.5 text-[13px] font-medium transition-colors ${
-                  isActive
-                    ? "text-foreground bg-surface-2"
-                    : "text-muted hover:bg-surface-2 hover:text-foreground"
+                  isActive ? 'text-foreground bg-surface-2' : 'text-muted hover:bg-surface-2 hover:text-foreground'
                 }`}
               >
                 {item.label}
@@ -80,12 +78,16 @@ export function SiteHeader() {
 
           <button
             type="button"
-            aria-label={mobileOpen ? "메뉴 닫기" : "메뉴 열기"}
+            aria-label={mobileOpen ? '메뉴 닫기' : '메뉴 열기'}
             aria-expanded={mobileOpen}
-            onClick={() => setMobileOpen((v) => !v)}
+            onClick={() => setMobileOpen(v => !v)}
             className="flex h-8 w-8 items-center justify-center rounded-sm text-foreground hover:bg-surface-2 lg:hidden"
           >
-            {mobileOpen ? <X className="h-5 w-5" aria-hidden="true" /> : <Menu className="h-5 w-5" aria-hidden="true" />}
+            {mobileOpen ? (
+              <X className="h-5 w-5" aria-hidden="true" />
+            ) : (
+              <Menu className="h-5 w-5" aria-hidden="true" />
+            )}
           </button>
         </div>
       </div>
@@ -101,15 +103,15 @@ export function SiteHeader() {
             />
           </div>
           <nav className="flex flex-col gap-0.5">
-            {NAV_ITEMS.map((item) => {
+            {NAV_ITEMS.map(item => {
               const isActive = isNavItemActive(pathname, item.href);
               return (
                 <Link
                   key={item.href}
                   href={item.href}
-                  aria-current={isActive ? "page" : undefined}
+                  aria-current={isActive ? 'page' : undefined}
                   className={`rounded-sm px-3 py-2 text-[13px] font-medium ${
-                    isActive ? "bg-surface-2 text-foreground" : "text-muted hover:bg-surface-2 hover:text-foreground"
+                    isActive ? 'bg-surface-2 text-foreground' : 'text-muted hover:bg-surface-2 hover:text-foreground'
                   }`}
                 >
                   {item.label}
