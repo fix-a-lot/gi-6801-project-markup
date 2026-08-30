@@ -7,6 +7,20 @@ export default function MobileUiPatternsPage() {
 
   return (
     <div className="min-h-screen bg-background">
+      <aside className="fixed left-[calc(50%-342px)] top-6 hidden w-44 lg:block" aria-label="UI 패턴 목차">
+        <p className="mb-3 text-[11px] font-bold uppercase tracking-wider text-muted">목차</p>
+        <nav className="flex flex-col gap-1 border-l border-border pl-3">
+          {UI_PATTERNS.map(({slug, name}) => (
+            <a
+              key={slug}
+              href={`#${slug}`}
+              className="truncate py-1 text-[12px] text-muted transition-colors hover:text-foreground"
+            >
+              {name}
+            </a>
+          ))}
+        </nav>
+      </aside>
       <div className="mx-auto w-[375px] max-w-full">
         <header className="border-b border-border px-4 py-4">
           <nav className="flex flex-wrap gap-1.5" aria-label="UI 패턴 페이지">
@@ -33,21 +47,6 @@ export default function MobileUiPatternsPage() {
           <h1 className="mt-4 text-lg font-bold text-foreground">UI 패턴 모음 · Mobile</h1>
           <p className="mt-1 text-[13px] leading-relaxed text-muted">375px 고정 본문에서 실제 컴포넌트를 확인한다.</p>
         </header>
-
-        <aside className="border-b border-border px-4 py-4" aria-label="UI 패턴 목차">
-          <p className="mb-3 text-[11px] font-bold uppercase tracking-wider text-muted">목차</p>
-          <nav className="flex flex-col gap-1 border-l border-border pl-3">
-            {UI_PATTERNS.map(({slug, name}) => (
-              <a
-                key={slug}
-                href={`#${slug}`}
-                className="truncate py-1 text-[12px] text-muted transition-colors hover:text-foreground"
-              >
-                {name}
-              </a>
-            ))}
-          </nav>
-        </aside>
 
         <main className="flex flex-col gap-8 px-4 py-6">
           {UI_PATTERNS.map(({slug, name, path, Component}) => (
