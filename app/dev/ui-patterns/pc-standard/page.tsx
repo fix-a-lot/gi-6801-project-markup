@@ -7,6 +7,20 @@ export default function PcStandardUiPatternsPage() {
 
   return (
     <div className="min-h-screen bg-background">
+      <aside className="fixed left-6 top-6 hidden w-44 lg:block" aria-label="UI 패턴 목차">
+        <p className="mb-3 text-[11px] font-bold uppercase tracking-wider text-muted">목차</p>
+        <nav className="flex flex-col gap-1 border-l border-border pl-3">
+          {UI_PATTERNS.map(({slug, name}) => (
+            <a
+              key={slug}
+              href={`#${slug}`}
+              className="truncate py-1 text-[12px] text-muted transition-colors hover:text-foreground"
+            >
+              {name}
+            </a>
+          ))}
+        </nav>
+      </aside>
       <div className="mx-auto w-[1232px] max-w-full">
         <header className="border-b border-border px-6 py-4">
           <nav className="flex flex-wrap gap-1.5" aria-label="UI 패턴 페이지">
@@ -33,22 +47,7 @@ export default function PcStandardUiPatternsPage() {
           <h1 className="mt-4 text-lg font-bold text-foreground">UI 패턴 모음 · PC Standard</h1>
           <p className="mt-1 text-[13px] leading-relaxed text-muted">1232px 고정 본문에서 실제 컴포넌트를 확인한다.</p>
         </header>
-        <div className="flex items-start">
-          <aside className="sticky top-6 hidden w-44 shrink-0 px-6 py-6 lg:block" aria-label="UI 패턴 목차">
-            <p className="mb-3 text-[11px] font-bold uppercase tracking-wider text-muted">목차</p>
-            <nav className="flex flex-col gap-1 border-l border-border pl-3">
-              {UI_PATTERNS.map(({slug, name}) => (
-                <a
-                  key={slug}
-                  href={`#${slug}`}
-                  className="truncate py-1 text-[12px] text-muted transition-colors hover:text-foreground"
-                >
-                  {name}
-                </a>
-              ))}
-            </nav>
-          </aside>
-          <main className="min-w-0 flex-1 px-6 py-6">
+        <main className="min-w-0 px-6 py-6">
             <div className="flex flex-col gap-8">
             {UI_PATTERNS.map(({slug, name, path, Component}) => (
               <section id={slug} key={slug} data-component="UI패턴항목" className="flex scroll-mt-6 flex-col gap-3">
@@ -61,9 +60,8 @@ export default function PcStandardUiPatternsPage() {
                 </div>
               </section>
             ))}
-            </div>
-          </main>
-        </div>
+          </div>
+        </main>
       </div>
     </div>
   );
