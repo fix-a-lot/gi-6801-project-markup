@@ -7,7 +7,7 @@ export default function PcStandardUiPatternsPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <aside className="fixed left-24 top-6 hidden w-44 lg:block" aria-label="UI 패턴 목차">
+      <aside className="fixed left-[calc(50%-770px)] top-6 hidden w-44 lg:block" aria-label="UI 패턴 목차">
         <p className="mb-3 text-[11px] font-bold uppercase tracking-wider text-muted">목차</p>
         <nav className="flex flex-col gap-1 border-l border-border pl-3">
           {UI_PATTERNS.map(({slug, name}) => (
