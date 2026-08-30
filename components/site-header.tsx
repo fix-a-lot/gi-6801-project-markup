@@ -31,11 +31,11 @@ export function SiteHeader() {
       data-component="사이트헤더"
       className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur"
     >
-      <div className="mx-auto flex h-14 max-w-[1280px] items-center gap-4 px-4 lg:px-6">
+      <div className="relative mx-auto flex h-14 max-w-[1280px] items-center gap-4 px-4 lg:px-6">
         {process.env.NEXT_PUBLIC_VERCEL_ENV !== 'production' && (
           <Link
             href="/dev/ui-patterns"
-            className="hidden shrink-0 items-center gap-1 rounded-sm border border-border px-2 py-1 text-[11px] font-medium text-muted transition-colors hover:border-primary/60 hover:text-foreground lg:flex"
+            className="absolute -left-20 hidden shrink-0 items-center gap-1 rounded-sm border border-border px-2 py-1 text-[11px] font-medium text-muted transition-colors hover:border-primary/60 hover:text-foreground lg:flex"
           >
             <LayoutGrid className="h-3.5 w-3.5" aria-hidden="true" />
             UI 패턴
