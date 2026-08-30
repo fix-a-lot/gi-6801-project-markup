@@ -2,7 +2,7 @@ import {notFound} from 'next/navigation';
 import {getUiPatternBySlug} from '@/lib/ui-pattern-registry';
 
 export default async function UiPatternPreviewPage({params}: {params: Promise<{slug: string}>}) {
-  if (process.env.NODE_ENV === 'production') notFound();
+  if (process.env.NEXT_PUBLIC_VERCEL_ENV === 'production') notFound();
 
   const {slug} = await params;
   const entry = getUiPatternBySlug(slug);

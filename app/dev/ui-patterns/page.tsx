@@ -9,7 +9,7 @@ const VIEWPORTS = [
 ] as const;
 
 export default function UiPatternsPage() {
-  if (process.env.NODE_ENV === 'production') notFound();
+  if (process.env.NEXT_PUBLIC_VERCEL_ENV === 'production') notFound();
 
   return (
     <div className="min-h-screen bg-background">

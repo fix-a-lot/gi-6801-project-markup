@@ -39,7 +39,7 @@ export function SiteHeader() {
           <span className="text-[15px] font-bold tracking-tight text-foreground">{SITE_NAME}</span>
         </Link>
 
-        {process.env.NODE_ENV !== 'production' && (
+        {process.env.NEXT_PUBLIC_VERCEL_ENV !== 'production' && (
           <Link
             href="/dev/ui-patterns"
             className="hidden shrink-0 items-center gap-1 rounded-sm border border-border px-2 py-1 text-[11px] font-medium text-muted transition-colors hover:border-primary/60 hover:text-foreground lg:flex"
