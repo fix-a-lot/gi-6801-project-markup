@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import {Search} from 'lucide-react';
+import {SITE_NAME} from '@/lib/site-config';
 
 const POPULAR_SEARCHES = ['은빛부검사', '카제하야', '무명의창잡이', '달빛서포터', '칼바람소서리스', '붉은칼날데모닉'];
 
@@ -10,7 +11,7 @@ export function HeroSearch() {
     <section data-component="메인검색" className="border-b border-border bg-surface">
       <div className="mx-auto max-w-[1280px] px-4 py-6 lg:px-6 lg:py-8">
         <h1 className="break-keep text-[19px] font-bold tracking-tight text-foreground text-balance">
-          아르케시아의 모든 데이터, ARKDEX에서 한번에
+          아르케시아의 모든 데이터, {SITE_NAME}에서 한번에
         </h1>
         <p className="mt-1 break-keep text-[13px] text-muted">
           캐릭터 검색 한 번으로 전투력, 장비, 각인, 보석까지 확인하세요

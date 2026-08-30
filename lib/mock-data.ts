@@ -1,7 +1,9 @@
-// Mock data for the ARKDEX home page.
+// Mock data for the Project L-6801 home page.
 // Structured to mirror the shape that the real Lost Ark Open API
 // (and internally accumulated stats) would eventually provide, so
 // display components can be swapped to live data without reshaping.
+
+import {SITE_NAME} from './site-config';
 
 export type NoticeCategory = '공지' | '이벤트' | '쿠폰' | '업데이트';
 
@@ -193,7 +195,7 @@ export interface SiteAnnouncement {
 }
 
 export const siteAnnouncements: SiteAnnouncement[] = [
-  {id: 'sa1', title: 'ARKDEX 시세 정보 갱신 주기 30분 단축 안내', date: '02.24'},
+  {id: 'sa1', title: `${SITE_NAME} 시세 정보 갱신 주기 30분 단축 안내`, date: '02.24'},
   {id: 'sa2', title: '캐릭터 검색 서버 증설 완료', date: '02.20'},
   {id: 'sa3', title: '통계 페이지 UI 개편 사전 안내', date: '02.15'}
 ];
