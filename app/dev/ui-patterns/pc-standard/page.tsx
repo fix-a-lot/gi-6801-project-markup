@@ -7,7 +7,7 @@ export default function PcStandardUiPatternsPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="mx-auto w-[1280px] max-w-full">
+      <div className="mx-auto w-[1232px] max-w-full">
         <header className="border-b border-border px-6 py-4">
           <nav className="flex flex-wrap gap-1.5" aria-label="UI 패턴 페이지">
             <Link
@@ -31,7 +31,7 @@ export default function PcStandardUiPatternsPage() {
             </Link>
           </nav>
           <h1 className="mt-4 text-lg font-bold text-foreground">UI 패턴 모음 · PC Standard</h1>
-          <p className="mt-1 text-[13px] leading-relaxed text-muted">1280px 고정 본문에서 실제 컴포넌트를 확인한다.</p>
+          <p className="mt-1 text-[13px] leading-relaxed text-muted">1232px 고정 본문에서 실제 컴포넌트를 확인한다.</p>
         </header>
         <main className="flex flex-col gap-8 px-6 py-6">
           {UI_PATTERNS.map(({slug, name, path, Component}) => (
