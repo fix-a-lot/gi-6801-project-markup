@@ -29,7 +29,7 @@ export default function MobileUiPatternsPage() {
             <section key={slug} data-component="UI패턴항목" className="flex flex-col gap-3">
               <div>
                 <h2 className="text-[14px] font-bold text-foreground">{name}</h2>
-                <p className="font-mono text-[11px] text-muted">/{path}</p>
+                <p className="font-mono text-[14px] text-muted">{path.split('/').pop()}</p>
               </div>
               <div className="min-w-0 overflow-hidden rounded-sm border border-border bg-background p-3">
                 <Component />
