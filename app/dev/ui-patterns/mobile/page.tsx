@@ -10,14 +10,24 @@ export default function MobileUiPatternsPage() {
       <div className="mx-auto w-[375px] max-w-full">
         <header className="border-b border-border px-4 py-4">
           <nav className="flex flex-wrap gap-1.5" aria-label="UI 패턴 페이지">
-            <Link href="/dev/ui-patterns/mobile" aria-current="page" className="rounded-sm bg-primary px-2 py-1 text-[11px] font-medium text-primary-foreground">
-              UI 패턴(모바일)
+            <Link
+              href="/dev/ui-patterns/pc-large"
+              className="rounded-sm border border-border px-2 py-1 text-[11px] font-medium text-muted hover:text-foreground"
+            >
+              PC 넓음
             </Link>
-            <Link href="/dev/ui-patterns/pc-standard" className="rounded-sm border border-border px-2 py-1 text-[11px] font-medium text-muted hover:text-foreground">
+            <Link
+              href="/dev/ui-patterns/pc-standard"
+              className="rounded-sm border border-border px-2 py-1 text-[11px] font-medium text-muted hover:text-foreground"
+            >
               PC 표준
             </Link>
-            <Link href="/dev/ui-patterns/pc-large" className="rounded-sm border border-border px-2 py-1 text-[11px] font-medium text-muted hover:text-foreground">
-              PC 넓음
+            <Link
+              href="/dev/ui-patterns/mobile"
+              aria-current="page"
+              className="rounded-sm bg-primary px-2 py-1 text-[11px] font-medium text-primary-foreground"
+            >
+              모바일
             </Link>
           </nav>
           <h1 className="mt-4 text-lg font-bold text-foreground">UI 패턴 모음 · Mobile</h1>
