@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import {siteAnnouncements} from '@/lib/mock-data';
+import {SITE_NAME} from '@/lib/site-config';
 
 export function SidebarSiteNotices() {
   return (
@@ -9,7 +10,7 @@ export function SidebarSiteNotices() {
       className="rounded-md border border-border bg-surface p-3"
     >
       <h2 id="site-notices-heading" className="mb-2 text-[13px] font-bold text-foreground">
-        ARKDEX 공지
+        {SITE_NAME} 공지
       </h2>
       <ul className="flex flex-col gap-1.5">
         {siteAnnouncements.map(notice => (
