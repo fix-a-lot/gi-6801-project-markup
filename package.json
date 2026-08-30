@@ -20,7 +20,7 @@
     "typescript": "^5.9.3"
   },
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --port 4000",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
