@@ -4,6 +4,7 @@ import {useState} from 'react';
 import Link from 'next/link';
 import {usePathname} from 'next/navigation';
 import {Menu, Search, Settings, X} from 'lucide-react';
+import {SITE_NAME} from '@/lib/site-config';
 
 const NAV_ITEMS = [
   {label: '홈', href: '/'},
@@ -33,11 +34,9 @@ export function SiteHeader() {
       <div className="mx-auto flex h-14 max-w-[1280px] items-center gap-4 px-4 lg:px-6">
         <Link href="/" className="flex items-center gap-2 shrink-0">
           <span className="flex h-6 w-6 items-center justify-center rounded-sm bg-primary text-[11px] font-bold text-primary-foreground font-mono">
-            A
+            L
           </span>
-          <span className="text-[15px] font-bold tracking-tight text-foreground">
-            ARK<span className="text-primary">DEX</span>
-          </span>
+          <span className="text-[15px] font-bold tracking-tight text-foreground">{SITE_NAME}</span>
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex">
