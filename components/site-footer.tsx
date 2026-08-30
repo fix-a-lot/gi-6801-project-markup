@@ -15,9 +15,24 @@ export function SiteFooter() {
             </div>
             {process.env.NEXT_PUBLIC_VERCEL_ENV !== 'production' && (
               <nav className="relative flex items-center gap-1" aria-label="UI 패턴 페이지">
-                <Link href="/dev/ui-patterns/pc-large" className="rounded-sm border border-border px-2 py-1 text-[11px] text-muted hover:border-primary/60 hover:text-foreground">PC 넓음</Link>
-                <Link href="/dev/ui-patterns/pc-standard" className="rounded-sm border border-border px-2 py-1 text-[11px] text-muted hover:border-primary/60 hover:text-foreground">PC 표준</Link>
-                <Link href="/dev/ui-patterns/mobile" className="rounded-sm border border-border px-2 py-1 text-[11px] text-muted hover:border-primary/60 hover:text-foreground">모바일</Link>
+                <Link
+                  href="/dev/ui-patterns/pc-large"
+                  className="rounded-sm border border-border px-2 py-1 text-[11px] text-muted hover:border-primary/60 hover:text-foreground"
+                >
+                  PC(넓음)
+                </Link>
+                <Link
+                  href="/dev/ui-patterns/pc-standard"
+                  className="rounded-sm border border-border px-2 py-1 text-[11px] text-muted hover:border-primary/60 hover:text-foreground"
+                >
+                  PC(표준)
+                </Link>
+                <Link
+                  href="/dev/ui-patterns/mobile"
+                  className="rounded-sm border border-border px-2 py-1 text-[11px] text-muted hover:border-primary/60 hover:text-foreground"
+                >
+                  모바일
+                </Link>
               </nav>
             )}
           </div>

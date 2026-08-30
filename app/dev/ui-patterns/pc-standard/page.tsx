@@ -14,14 +14,14 @@ export default function PcStandardUiPatternsPage() {
               href="/dev/ui-patterns/pc-large"
               className="rounded-sm border border-border px-2 py-1 text-[11px] font-medium text-muted hover:text-foreground"
             >
-              PC 넓음
+              PC(넓음)
             </Link>
             <Link
               href="/dev/ui-patterns/pc-standard"
               aria-current="page"
               className="rounded-sm bg-primary px-2 py-1 text-[11px] font-medium text-primary-foreground"
             >
-              PC 표준
+              PC(표준)
             </Link>
             <Link
               href="/dev/ui-patterns/mobile"

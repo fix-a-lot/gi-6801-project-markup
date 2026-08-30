@@ -14,13 +14,13 @@ export default function MobileUiPatternsPage() {
               href="/dev/ui-patterns/pc-large"
               className="rounded-sm border border-border px-2 py-1 text-[11px] font-medium text-muted hover:text-foreground"
             >
-              PC 넓음
+              PC(넓음)
             </Link>
             <Link
               href="/dev/ui-patterns/pc-standard"
               className="rounded-sm border border-border px-2 py-1 text-[11px] font-medium text-muted hover:text-foreground"
             >
-              PC 표준
+              PC(표준)
             </Link>
             <Link
               href="/dev/ui-patterns/mobile"
