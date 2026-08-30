@@ -8,7 +8,10 @@ import {SidebarSiteStats} from '@/components/sidebar-site-stats';
 import {SiteFooter} from '@/components/site-footer';
 import {SiteHeader} from '@/components/site-header';
 import {WeeklySchedule} from '@/components/weekly-schedule';
-import {LoawaHomeAdditions} from '@/components/loawa-home-additions';
+import {ChzzkStreamers} from '@/components/chzzk-streamers';
+import {CouponCode} from '@/components/coupon-code';
+import {LoawaNotices} from '@/components/loawa-notices';
+import {OngoingEvents} from '@/components/ongoing-events';
 
 export default function Home() {
   return (
@@ -31,7 +34,14 @@ export default function Home() {
             <SidebarSiteNotices />
           </aside>
         </div>
-        <LoawaHomeAdditions />
+        <div className="mt-4 grid gap-4 lg:grid-cols-[260px_minmax(0,1fr)_260px]">
+          <div className="flex flex-col gap-4">
+            <OngoingEvents />
+            <CouponCode />
+          </div>
+          <ChzzkStreamers />
+          <LoawaNotices />
+        </div>
       </main>
 
       <SiteFooter />

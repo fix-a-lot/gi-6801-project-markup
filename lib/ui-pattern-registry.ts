@@ -1,7 +1,10 @@
 import type {ComponentType} from 'react';
 import {HeroSearch} from '@/components/hero-search';
 import {InfoTabs} from '@/components/info-tabs';
-import {LoawaHomeAdditions} from '@/components/loawa-home-additions';
+import {ChzzkStreamers} from '@/components/chzzk-streamers';
+import {CouponCode} from '@/components/coupon-code';
+import {LoawaNotices} from '@/components/loawa-notices';
+import {OngoingEvents} from '@/components/ongoing-events';
 import {QuickLinks} from '@/components/quick-links';
 import {SidebarPopularCharacters} from '@/components/sidebar-popular-characters';
 import {SidebarServerStats} from '@/components/sidebar-server-stats';
@@ -48,12 +51,10 @@ export const UI_PATTERNS: UiPatternEntry[] = [
     path: 'components/sidebar-site-notices.tsx',
     Component: SidebarSiteNotices
   },
-  {
-    slug: 'loawa-home-additions',
-    name: '로아와추가영역',
-    path: 'components/loawa-home-additions.tsx',
-    Component: LoawaHomeAdditions
-  },
+  {slug: 'ongoing-events', name: '진행중이벤트', path: 'components/ongoing-events.tsx', Component: OngoingEvents},
+  {slug: 'coupon-code', name: '쿠폰코드', path: 'components/coupon-code.tsx', Component: CouponCode},
+  {slug: 'chzzk-streamers', name: '치지직스트리머', path: 'components/chzzk-streamers.tsx', Component: ChzzkStreamers},
+  {slug: 'loawa-notices', name: '로아와공지', path: 'components/loawa-notices.tsx', Component: LoawaNotices},
   {slug: 'site-footer', name: '푸터', path: 'components/site-footer.tsx', Component: SiteFooter}
 ];
 
