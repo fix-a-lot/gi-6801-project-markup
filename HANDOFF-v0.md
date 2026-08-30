@@ -16,6 +16,7 @@ v0 채팅 세션 전용 인수인계 문서. `docs/HANDOFF.md`는 Claude Code(CL
 - `ui-pattern-collection` 스킬에 따라 개발용 UI 패턴 모음 페이지(`app/dev/ui-patterns/page.tsx`)를 추가함. 컴포넌트 레지스트리는 `lib/ui-pattern-registry.ts`, 개별 컴포넌트를 렌더링하는 격리 프리뷰 라우트는 `app/dev/ui-patterns/preview/[slug]/page.tsx`, 뷰포트별(PC Large 1440 / PC Standard 1280 / Mobile 375) 스케일 미리보기는 `components/dev/ui-pattern-viewport-preview.tsx`(iframe + CSS `transform: scale`)로 구현함. `NODE_ENV === 'production'`이면 두 라우트 모두 `notFound()` 처리해 프로덕션에 노출되지 않음. `site-header.tsx`에 개발 전용("UI 패턴") 버튼을 추가해 진입 경로를 만듦(데스크톱 헤더에서만 노출, `lg:flex`).
 - `site-header.tsx`에서 개발 전용 "UI 패턴" 버튼을 사이트 로고 오른쪽에서 헤더 최좌측으로 이동함.
 - UI 패턴 버튼을 헤더 flex 흐름에서 분리해 `absolute`로 배치함. 기존 제목·내비게이션·우측 요소의 정렬과 위치를 유지하면서 제목 좌측에 표시되도록 조정함.
+- 기존 UI 패턴 컬렉션/iframe 프리뷰 페이지를 삭제하고, 우선 Mobile 독립 페이지(`app/dev/ui-patterns/mobile/page.tsx`)만 재구현함. 본문 너비를 `375px`로 고정하고 기존 UI 패턴 전체를 동일한 컴포넌트로 렌더링하며, 상단에 Mobile/PC Standard/PC Large 이동 링크를 배치함. 헤더의 개발용 링크는 Mobile 페이지를 가리키도록 수정함.
 
 ## 알려진 이슈 (해결됨)
 
