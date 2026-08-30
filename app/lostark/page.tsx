@@ -8,6 +8,7 @@ import {SidebarSiteStats} from '@/components/sidebar-site-stats';
 import {SiteFooter} from '@/components/site-footer';
 import {SiteHeader} from '@/components/site-header';
 import {WeeklySchedule} from '@/components/weekly-schedule';
+import {LoawaHomeAdditions} from '@/components/loawa-home-additions';
 
 export default function Home() {
   return (
@@ -30,6 +31,7 @@ export default function Home() {
             <SidebarSiteNotices />
           </aside>
         </div>
+        <LoawaHomeAdditions />
       </main>
 
       <SiteFooter />
