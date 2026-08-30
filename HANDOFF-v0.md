@@ -23,9 +23,3 @@ v0 채팅 세션 전용 인수인계 문서. `docs/HANDOFF.md`는 Claude Code(CL
 - 이 저장소는 partial clone(blob:none)이라 `git reset --hard`, `fetch` 등이 매번 GitHub에서 blob을 새로 받아와서 일반 저장소보다 느리다. 정상 동작이니 별다른 조치 불필요.
 - v0 채팅의 배포/프리뷰는 채팅에 연결된 특정 브랜치(현재 `v0/by-fix-a-lot`)만 본다. 다른 브랜치를 만들어도 자동으로 반영되지 않는다.
 - `AGENTS.md`의 Version Control 규칙(`code-update-by-agent` 브랜치)은 Claude Code(배치 세션) 전용 워크플로우로 보임 — v0 채팅은 자체 브랜치(`v0/...`)를 쓰므로 해당 규칙과는 별개로 동작한다. 혼동 방지용으로 기록.
-
-## 이 문서 갱신 규칙
-
-- 작업을 시작하기 전에 원격 `main`을 `git fetch origin main`으로 확인한다.
-- 이후 모든 작업 내용과 중요한 변경사항을 이 문서에 짧게 기록한다.
-- 바뀐 부분만 짧게 고친다.
