@@ -11,6 +11,12 @@
 - Lost Ark Open API를 활용하는 로스트아크 정보 사이트를 만든다.
 - 이 저장소에서는 실제 API 연동 없이 `lib/mock-data.ts`의 mock 데이터로 화면을 구현한다.
 
+## Terms
+
+- **로아 API**: 로스트아크가 제공하는 공식 Open API
+- **로아 데이터**: Open API가 제공하는 데이터
+- **로아와**: 사이트 디자인 참고용 사이트 [https://loawa.com/](https://loawa.com/)
+
 ## Design & Markup
 
 - [`docs/agents/design.md`](docs/agents/design.md) — 디자인 원칙, 구현 원칙, 페이지 작업 규칙.
