@@ -10,7 +10,6 @@ v0 채팅 세션 전용 인수인계 문서. `docs/HANDOFF.md`는 Claude Code(CL
 - `/` 인덱스 페이지(`app/page.tsx`)를 추가하고 로스트아크 링크를 `/lostark`에 연결함. 루트 리다이렉트 설정도 제거함.
 - 사이트 이름을 `lib/site-config.ts`의 `SITE_NAME` 전역 상수(`Project L-6801`)로 통일함. 헤더, 푸터, 메타데이터, 공지, 검색 문구, mock 데이터에 적용함.
 - 사이트 공지 제목 클릭 시 중앙 레이어 팝업이 열리도록 `components/sidebar-site-notices.tsx`를 확장함. 오버레이 클릭, 닫기 버튼, Escape 키 닫기를 지원함.
-- 사용자 요청에 따라 이후 작업 내용을 이 문서(`HANDOFF-v0.md`)에 기록함.
 - 디자인 토큰에 `secondary`(`#5cc7e0`, 시안) 추가. 적용 위치: 주간 일정 "항해" 카테고리, 정보 탭 "업데이트" 배지.
 - `site-header.tsx` 내비게이션 활성 상태를 `i === 0` 하드코딩 → `usePathname()` 기반으로 수정 (`next.config.ts`의 `/` → `/lostark` 임시 리다이렉트를 고려해 `isNavItemActive` 헬퍼로 두 경로 모두 홈으로 인식).
 - `app/globals.css`의 미사용 토큰(`--radius-lg`) 제거.
