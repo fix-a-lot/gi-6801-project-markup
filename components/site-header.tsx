@@ -3,7 +3,7 @@
 import {useState} from 'react';
 import Link from 'next/link';
 import {usePathname} from 'next/navigation';
-import {LayoutGrid, Menu, Search, Settings, X} from 'lucide-react';
+import {Menu, Search, Settings, X} from 'lucide-react';
 import {SITE_NAME} from '@/lib/site-config';
 
 const NAV_ITEMS = [
@@ -32,16 +32,6 @@ export function SiteHeader() {
       className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur"
     >
       <div className="relative mx-auto flex h-14 max-w-[1280px] items-center gap-4 px-4 lg:px-6">
-        {process.env.NEXT_PUBLIC_VERCEL_ENV !== 'production' && (
-          <nav className="absolute -left-64 hidden items-center gap-1 lg:flex" aria-label="UI 패턴 페이지">
-            <Link href="/dev/ui-patterns/pc-large" className="rounded-sm border border-border px-2 py-1 text-[11px] font-medium text-muted transition-colors hover:border-primary/60 hover:text-foreground">
-              <LayoutGrid className="mr-1 inline-block h-3.5 w-3.5" aria-hidden="true" />PC 넓음
-            </Link>
-            <Link href="/dev/ui-patterns/pc-standard" className="rounded-sm border border-border px-2 py-1 text-[11px] font-medium text-muted transition-colors hover:border-primary/60 hover:text-foreground">PC 표준</Link>
-            <Link href="/dev/ui-patterns/mobile" className="rounded-sm border border-border px-2 py-1 text-[11px] font-medium text-muted transition-colors hover:border-primary/60 hover:text-foreground">모바일</Link>
-          </nav>
-        )}
-
         <Link href="/" className="flex items-center gap-2 shrink-0">
           <span className="flex h-6 w-6 items-center justify-center rounded-sm bg-primary text-[11px] font-bold text-primary-foreground font-mono">
             L
