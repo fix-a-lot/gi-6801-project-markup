@@ -13,7 +13,8 @@ v0 채팅 세션 전용 인수인계 문서. `docs/HANDOFF.md`는 Claude Code(CL
 - 디자인 토큰에 `secondary`(`#5cc7e0`, 시안) 추가. 적용 위치: 주간 일정 "항해" 카테고리, 정보 탭 "업데이트" 배지.
 - `site-header.tsx` 내비게이션 활성 상태를 `i === 0` 하드코딩 → `usePathname()` 기반으로 수정 (`next.config.ts`의 `/` → `/lostark` 임시 리다이렉트를 고려해 `isNavItemActive` 헬퍼로 두 경로 모두 홈으로 인식).
 - `app/globals.css`의 미사용 토큰(`--radius-lg`) 제거.
-- `ui-pattern-collection` 스킬에 따라 개발용 UI 패턴 모음 페이지(`app/dev/ui-patterns/page.tsx`)를 추가함. 컴포넌트 레지스트리는 `lib/ui-pattern-registry.ts`, 개별 컴포넌트를 렌더링하는 격리 프리뷰 라우트는 `app/dev/ui-patterns/preview/[slug]/page.tsx`, 뷰포트별(PC Large 1440 / PC Standard 1280 / Mobile 375) 스케일 미리보기는 `components/dev/ui-pattern-viewport-preview.tsx`(iframe + CSS `transform: scale`)로 구현함. `NODE_ENV === 'production'`이면 두 라우트 모두 `notFound()` 처리해 프로덕션에 노출되지 않음. `site-header.tsx`에 로고 옆 개발 전용("UI 패턴") 버튼을 추가해 진입 경로를 만듦(데스크톱 헤더에서만 노출, `lg:flex`).
+- `ui-pattern-collection` 스킬에 따라 개발용 UI 패턴 모음 페이지(`app/dev/ui-patterns/page.tsx`)를 추가함. 컴포넌트 레지스트리는 `lib/ui-pattern-registry.ts`, 개별 컴포넌트를 렌더링하는 격리 프리뷰 라우트는 `app/dev/ui-patterns/preview/[slug]/page.tsx`, 뷰포트별(PC Large 1440 / PC Standard 1280 / Mobile 375) 스케일 미리보기는 `components/dev/ui-pattern-viewport-preview.tsx`(iframe + CSS `transform: scale`)로 구현함. `NODE_ENV === 'production'`이면 두 라우트 모두 `notFound()` 처리해 프로덕션에 노출되지 않음. `site-header.tsx`에 개발 전용("UI 패턴") 버튼을 추가해 진입 경로를 만듦(데스크톱 헤더에서만 노출, `lg:flex`).
+- `site-header.tsx`에서 개발 전용 "UI 패턴" 버튼을 사이트 로고 오른쪽에서 헤더 최좌측으로 이동함.
 
 ## 알려진 이슈 (해결됨)
 

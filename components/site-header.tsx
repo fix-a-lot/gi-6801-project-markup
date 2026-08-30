@@ -32,13 +32,6 @@ export function SiteHeader() {
       className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur"
     >
       <div className="mx-auto flex h-14 max-w-[1280px] items-center gap-4 px-4 lg:px-6">
-        <Link href="/" className="flex items-center gap-2 shrink-0">
-          <span className="flex h-6 w-6 items-center justify-center rounded-sm bg-primary text-[11px] font-bold text-primary-foreground font-mono">
-            L
-          </span>
-          <span className="text-[15px] font-bold tracking-tight text-foreground">{SITE_NAME}</span>
-        </Link>
-
         {process.env.NEXT_PUBLIC_VERCEL_ENV !== 'production' && (
           <Link
             href="/dev/ui-patterns"
@@ -48,6 +41,13 @@ export function SiteHeader() {
             UI 패턴
           </Link>
         )}
+
+        <Link href="/" className="flex items-center gap-2 shrink-0">
+          <span className="flex h-6 w-6 items-center justify-center rounded-sm bg-primary text-[11px] font-bold text-primary-foreground font-mono">
+            L
+          </span>
+          <span className="text-[15px] font-bold tracking-tight text-foreground">{SITE_NAME}</span>
+        </Link>
 
         <nav className="hidden items-center gap-1 lg:flex">
           {NAV_ITEMS.map(item => {
