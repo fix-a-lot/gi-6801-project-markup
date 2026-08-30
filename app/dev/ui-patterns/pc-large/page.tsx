@@ -7,6 +7,20 @@ export default function PcLargeUiPatternsPage() {
 
   return (
     <div className="min-h-screen bg-background">
+      <aside className="fixed left-[calc(50%-874px)] top-6 hidden w-44 lg:block" aria-label="UI 패턴 목차">
+        <p className="mb-3 text-[11px] font-bold uppercase tracking-wider text-muted">목차</p>
+        <nav className="flex flex-col gap-1 border-l border-border pl-3">
+          {UI_PATTERNS.map(({slug, name}) => (
+            <a
+              key={slug}
+              href={`#${slug}`}
+              className="truncate py-1 text-[12px] text-muted transition-colors hover:text-foreground"
+            >
+              {name}
+            </a>
+          ))}
+        </nav>
+      </aside>
       <div className="mx-auto w-[1440px] max-w-full">
         <header className="border-b border-border px-6 py-4">
           <nav className="flex flex-wrap gap-1.5" aria-label="UI 패턴 페이지">
@@ -35,7 +49,7 @@ export default function PcLargeUiPatternsPage() {
         </header>
         <main className="flex flex-col gap-8 px-6 py-6">
           {UI_PATTERNS.map(({slug, name, path, Component}) => (
-            <section key={slug} data-component="UI패턴항목" className="flex flex-col gap-3">
+            <section id={slug} key={slug} data-component="UI패턴항목" className="flex scroll-mt-6 flex-col gap-3">
               <div>
                 <h2 className="text-[14px] font-bold text-foreground">{name}</h2>
                 <p className="font-mono text-[14px] text-muted">{path.split('/').pop()}</p>
