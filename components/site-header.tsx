@@ -3,7 +3,7 @@
 import {useState} from 'react';
 import Link from 'next/link';
 import {usePathname} from 'next/navigation';
-import {Menu, Search, Settings, X} from 'lucide-react';
+import {LayoutGrid, Menu, Search, Settings, X} from 'lucide-react';
 import {SITE_NAME} from '@/lib/site-config';
 
 const NAV_ITEMS = [
@@ -38,6 +38,16 @@ export function SiteHeader() {
           </span>
           <span className="text-[15px] font-bold tracking-tight text-foreground">{SITE_NAME}</span>
         </Link>
+
+        {process.env.NODE_ENV !== 'production' && (
+          <Link
+            href="/dev/ui-patterns"
+            className="hidden shrink-0 items-center gap-1 rounded-sm border border-border px-2 py-1 text-[11px] font-medium text-muted transition-colors hover:border-primary/60 hover:text-foreground lg:flex"
+          >
+            <LayoutGrid className="h-3.5 w-3.5" aria-hidden="true" />
+            UI 패턴
+          </Link>
+        )}
 
         <nav className="hidden items-center gap-1 lg:flex">
           {NAV_ITEMS.map(item => {
