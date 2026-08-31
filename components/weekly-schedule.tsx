@@ -1,18 +1,10 @@
 'use client';
 
 import {useState} from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
-import {Compass, Flag, Ship, Skull, Swords} from 'lucide-react';
 import type {ScheduleCategory} from '@/lib/mock-data';
 import {weeklySchedule} from '@/lib/mock-data';
-
-const CATEGORY_ICON: Record<ScheduleCategory, typeof Compass> = {
-  모험섬: Compass,
-  필드보스: Flag,
-  항해: Ship,
-  카오스던전: Swords,
-  가디언토벌: Skull
-};
 
 const CATEGORY_COLOR: Record<ScheduleCategory, string> = {
   모험섬: 'text-primary',
@@ -67,26 +59,29 @@ export function WeeklySchedule() {
       </div>
 
       <ul className="no-scrollbar flex gap-2 overflow-x-auto px-3 py-3">
-        {selected.events.map(event => {
-          const Icon = CATEGORY_ICON[event.category];
-          return (
-            <li
-              key={event.id}
-              className="flex w-48 shrink-0 flex-col gap-2 rounded-sm border border-border bg-surface-2 p-3"
-            >
-              <div className="flex items-center gap-1.5">
-                <Icon className={`h-3.5 w-3.5 shrink-0 ${CATEGORY_COLOR[event.category]}`} aria-hidden="true" />
-                <span className={`text-[11px] font-medium ${CATEGORY_COLOR[event.category]}`}>{event.category}</span>
-              </div>
-              <p className="truncate text-[13px] font-medium text-foreground">{event.name}</p>
-              <div className="flex items-center justify-between text-[11px] text-muted">
-                <span className="font-mono">{event.time}</span>
-                {event.server && <span>{event.server}</span>}
-              </div>
-              {event.note && <p className="truncate text-[11px] text-muted">{event.note}</p>}
-            </li>
-          );
-        })}
+        {selected.events.map(event => (
+          <li
+            key={event.id}
+            className="flex w-48 shrink-0 flex-col gap-2 rounded-sm border border-border bg-surface-2 p-3"
+          >
+            <div className="flex items-center gap-1.5">
+              <Image
+                src={event.iconUrl}
+                alt=""
+                width={16}
+                height={16}
+                className="h-4 w-4 shrink-0 rounded-[3px] object-cover"
+              />
+              <span className={`text-[11px] font-medium ${CATEGORY_COLOR[event.category]}`}>{event.category}</span>
+            </div>
+            <p className="truncate text-[13px] font-medium text-foreground">{event.name}</p>
+            <div className="flex items-center justify-between text-[11px] text-muted">
+              <span className="font-mono">{event.time}</span>
+              {event.server && <span>{event.server}</span>}
+            </div>
+            {event.note && <p className="truncate text-[11px] text-muted">{event.note}</p>}
+          </li>
+        ))}
       </ul>
     </section>
   );

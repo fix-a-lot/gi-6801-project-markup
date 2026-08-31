@@ -40,6 +40,15 @@ export const noticeItems: NoticeItem[] = [
 
 export type ScheduleCategory = '모험섬' | '필드보스' | '항해' | '카오스던전' | '가디언토벌';
 
+// 로아 API가 제공하는 이벤트 아이콘 경로. 카테고리별로 매핑해 목데이터에서 재사용한다.
+export const SCHEDULE_CATEGORY_ICON: Record<ScheduleCategory, string> = {
+  모험섬: '/icons/schedule/adventure-island.png',
+  필드보스: '/icons/schedule/field-boss.png',
+  항해: '/icons/schedule/voyage.png',
+  카오스던전: '/icons/schedule/chaos-dungeon.png',
+  가디언토벌: '/icons/schedule/guardian-raid.png'
+};
+
 export interface ScheduleEvent {
   id: string;
   category: ScheduleCategory;
@@ -47,6 +56,8 @@ export interface ScheduleEvent {
   time: string;
   server?: string;
   note?: string;
+  /** 로아 API가 제공하는 이벤트 아이콘 이미지 경로 */
+  iconUrl: string;
 }
 
 export interface ScheduleDay {
@@ -56,7 +67,16 @@ export interface ScheduleDay {
   events: ScheduleEvent[];
 }
 
-export const weeklySchedule: ScheduleDay[] = [
+type RawScheduleEvent = Omit<ScheduleEvent, 'iconUrl'>;
+
+interface RawScheduleDay {
+  day: string;
+  date: string;
+  isToday?: boolean;
+  events: RawScheduleEvent[];
+}
+
+const rawWeeklySchedule: RawScheduleDay[] = [
   {
     day: '월',
     date: '02.23',
@@ -123,6 +143,11 @@ export const weeklySchedule: ScheduleDay[] = [
     ]
   }
 ];
+
+export const weeklySchedule: ScheduleDay[] = rawWeeklySchedule.map(d => ({
+  ...d,
+  events: d.events.map(e => ({...e, iconUrl: SCHEDULE_CATEGORY_ICON[e.category]}))
+}));
 
 export interface QuickLink {
   id: string;
