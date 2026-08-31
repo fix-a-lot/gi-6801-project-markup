@@ -5,7 +5,7 @@ export function SidebarServerStats() {
 
   return (
     <section
-      data-component="서버통계"
+      data-component="서버별캐릭터수"
       aria-labelledby="server-stats-heading"
       className="rounded-md border border-border bg-surface p-3"
     >

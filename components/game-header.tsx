@@ -28,7 +28,7 @@ export function SiteHeader() {
 
   return (
     <header
-      data-component="사이트헤더"
+      data-component="게임헤더"
       className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur"
     >
       <div className="relative mx-auto flex h-14 max-w-[1280px] items-center gap-4 px-4 lg:px-6">

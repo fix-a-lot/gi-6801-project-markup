@@ -8,7 +8,7 @@ const SERVERS = ['전체 서버', '루페온', '실리안', '아만', '카마인
 
 export function HeroSearch() {
   return (
-    <section data-component="메인검색" className="border-b border-border bg-surface">
+    <section data-component="캐릭터검색" className="border-b border-border bg-surface">
       <div className="mx-auto max-w-[1280px] px-4 py-6 lg:px-6 lg:py-8">
         <h1 className="break-keep text-[19px] font-bold tracking-tight text-foreground text-balance">
           아르케시아의 모든 데이터, {SITE_NAME}에서 한번에

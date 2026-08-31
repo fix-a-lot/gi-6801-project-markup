@@ -4,7 +4,7 @@ import {popularCharacters} from '@/lib/mock-data';
 export function SidebarPopularCharacters() {
   return (
     <section
-      data-component="인기캐릭터"
+      data-component="인기검색캐릭터"
       aria-labelledby="popular-characters-heading"
       className="rounded-md border border-border bg-surface"
     >

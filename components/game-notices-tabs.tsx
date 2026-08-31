@@ -21,7 +21,7 @@ export function InfoTabs() {
 
   return (
     <section
-      data-component="공지탭"
+      data-component="게임공지탭"
       aria-labelledby="info-tabs-heading"
       className="rounded-md border border-border bg-surface"
     >

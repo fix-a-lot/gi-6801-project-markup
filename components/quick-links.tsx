@@ -11,11 +11,7 @@ const ICONS: Record<QuickLink['icon'], typeof Trophy> = {
 
 export function QuickLinks() {
   return (
-    <section
-      data-component="바로가기"
-      aria-label="주요 기능 바로가기"
-      className="grid grid-cols-2 gap-2 sm:grid-cols-4"
-    >
+    <section data-component="퀵링크" aria-label="주요 기능 바로가기" className="grid grid-cols-2 gap-2 sm:grid-cols-4">
       {quickLinks.map(link => {
         const Icon = ICONS[link.icon];
         return (

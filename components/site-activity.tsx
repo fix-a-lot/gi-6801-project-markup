@@ -3,7 +3,7 @@ import {siteStats} from '@/lib/mock-data';
 export function SidebarSiteStats() {
   return (
     <section
-      data-component="사이트통계"
+      data-component="사이트활동"
       aria-labelledby="site-stats-heading"
       className="rounded-md border border-border bg-surface p-3"
     >
