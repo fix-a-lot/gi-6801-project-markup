@@ -3,7 +3,7 @@
 import {useState} from 'react';
 import {Megaphone, X} from 'lucide-react';
 import {siteAnnouncements} from '@/lib/mock-data';
-import {SITE_NAME} from '@/lib/site-config';
+import {SITE_NAME} from '@/lib/constants';
 
 const announcementDetails: Record<string, string[]> = {
   sa1: [

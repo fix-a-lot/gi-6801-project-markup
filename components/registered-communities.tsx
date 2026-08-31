@@ -14,10 +14,10 @@ const serverStats = [
 
 export function LoawaServerInfo() {
   return (
-    <section data-component="등록된커뮤니티정보" className="rounded-md border border-border bg-surface">
+    <section data-component="커뮤니티등록정보" className="rounded-md border border-border bg-surface">
       <div className="flex items-center gap-2 border-b border-border px-3 py-2.5">
         <Server className="size-4 text-primary" aria-hidden="true" />
-        <h2 className="text-[13px] font-bold text-foreground">로아와 서버정보</h2>
+        <h2 className="text-[13px] font-bold text-foreground">커뮤니티 등록 정보</h2>
       </div>
       <div className="grid grid-cols-2">
         {serverStats.map(([label, value]) => (

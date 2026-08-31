@@ -3,7 +3,7 @@
 // (and internally accumulated stats) would eventually provide, so
 // display components can be swapped to live data without reshaping.
 
-import {SITE_NAME} from './site-config';
+import {SITE_NAME} from './constants';
 
 export type NoticeCategory = '공지' | '이벤트' | '쿠폰' | '업데이트';
 

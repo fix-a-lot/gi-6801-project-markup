@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import {SITE_NAME} from '@/lib/site-config';
+import {SITE_NAME} from '@/lib/constants';
 
 export function SiteFooter() {
   return (
@@ -9,12 +9,12 @@ export function SiteFooter() {
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-2">
               <span className="flex h-5 w-5 items-center justify-center rounded-sm bg-primary text-[10px] font-bold text-primary-foreground font-mono">
-                L
+                A
               </span>
               <span className="text-[13px] font-bold text-foreground">{SITE_NAME}</span>
             </div>
             {process.env.NEXT_PUBLIC_VERCEL_ENV !== 'production' && (
-              <nav className="relative flex items-center gap-1" aria-label="UI 패턴 페이지">
+              <nav className="flex items-center gap-1" aria-label="UI 패턴 페이지">
                 <Link
                   href="/dev/ui-patterns/pc-large"
                   className="rounded-sm border border-border px-2 py-1 text-[11px] text-muted hover:border-primary/60 hover:text-foreground"

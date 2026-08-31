@@ -1,6 +1,6 @@
 import type {Metadata, Viewport} from 'next';
 import {Noto_Sans_KR, Nanum_Gothic_Coding} from 'next/font/google';
-import {SITE_NAME} from '@/lib/site-config';
+import {SITE_NAME} from '@/lib/constants';
 import './globals.css';
 
 const notoSansKr = Noto_Sans_KR({

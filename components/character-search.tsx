@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import {Search} from 'lucide-react';
-import {SITE_NAME} from '@/lib/site-config';
+import {SITE_NAME} from '@/lib/constants';
 
 const POPULAR_SEARCHES = ['은빛부검사', '카제하야', '무명의창잡이', '달빛서포터', '칼바람소서리스', '붉은칼날데모닉'];
 
