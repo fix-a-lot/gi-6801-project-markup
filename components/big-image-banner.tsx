@@ -6,7 +6,7 @@ export function BigImageBanner() {
     <Link
       href="/notice?tab=업데이트"
       data-component="큰이미지배너"
-      className="group relative block h-[200px] w-full overflow-hidden rounded-md border border-border sm:h-[240px] lg:h-[280px]"
+      className="relative block h-[200px] w-full overflow-hidden rounded-md border border-border sm:h-[240px] lg:h-[280px]"
     >
       <Image
         src="/images/banners/new-class-weather-mage.png"
@@ -14,7 +14,7 @@ export function BigImageBanner() {
         fill
         priority
         sizes="(min-width: 1024px) 960px, 100vw"
-        className="object-cover transition-transform duration-500 group-hover:scale-105"
+        className="object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/10 to-transparent" />
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-background/50" />
