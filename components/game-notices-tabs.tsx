@@ -5,7 +5,7 @@ import Link from 'next/link';
 import type {NoticeCategory} from '@/lib/mock-data';
 import {noticeItems} from '@/lib/mock-data';
 
-const CATEGORIES: NoticeCategory[] = ['공지', '이벤트', '쿠폰', '업데이트'];
+const CATEGORIES: NoticeCategory[] = ['공지', '쿠폰', '업데이트'];
 
 const BADGE_STYLES: Record<NoticeCategory, string> = {
   공지: 'text-muted bg-surface-2',
@@ -54,7 +54,7 @@ export function InfoTabs() {
       </div>
 
       <h2 id="info-tabs-heading" className="sr-only">
-        게임 공지, 이벤트, 쿠폰, 업데이트
+        게임 공지, 쿠폰, 업데이트
       </h2>
 
       <ul className="divide-y divide-border">

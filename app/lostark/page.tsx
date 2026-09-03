@@ -23,6 +23,7 @@ export default function Home() {
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-[minmax(0,1fr)_320px]">
           <div className="flex flex-col gap-4">
             <QuickLinks />
+            <OngoingEvents />
             <InfoTabs />
             <WeeklySchedule />
           </div>
@@ -36,7 +37,6 @@ export default function Home() {
         </div>
         <div className="mt-4 grid gap-4 lg:grid-cols-[260px_minmax(0,1fr)_260px]">
           <div className="flex flex-col gap-4">
-            <OngoingEvents />
             <CouponCode />
           </div>
           <ChzzkStreamers />
