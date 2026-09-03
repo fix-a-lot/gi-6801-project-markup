@@ -12,6 +12,7 @@ const NAV_ITEMS = [
   {label: '랭킹', href: '/ranking'},
   {label: '통계', href: '/stats'},
   {label: '시세', href: '/market'},
+  {label: '경매장', href: '/auction'},
   {label: '도구', href: '/tools'}
 ];
 

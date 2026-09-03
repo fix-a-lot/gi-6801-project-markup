@@ -224,3 +224,323 @@ export const siteAnnouncements: SiteAnnouncement[] = [
   {id: 'sa2', title: '캐릭터 검색 서버 증설 완료', date: '02.20'},
   {id: 'sa3', title: '통계 페이지 UI 개편 사전 안내', date: '02.15'}
 ];
+
+// ---------------------------------------------------------------------------
+// 아이템 등급
+// ---------------------------------------------------------------------------
+
+export type ItemGrade = '일반' | '고급' | '희귀' | '영웅' | '전설' | '유물' | '고대';
+
+/** 로스트아크 실제 아이템 등급 색상 체계를 따른 스와치 색상 (배경/텍스트) */
+export const GRADE_STYLE: Record<ItemGrade, string> = {
+  일반: 'bg-muted/40 text-foreground',
+  고급: 'bg-rise/70 text-background',
+  희귀: 'bg-secondary text-secondary-foreground',
+  영웅: 'bg-primary/80 text-primary-foreground',
+  전설: 'bg-[#e8a33d] text-background',
+  유물: 'bg-[#d9622b] text-background',
+  고대: 'bg-[#e9dfc7] text-background'
+};
+
+// ---------------------------------------------------------------------------
+// 시세 (거래소)
+// ---------------------------------------------------------------------------
+
+export type MarketCategory = '재련 재료' | '각인서' | '보석' | '기타 재료';
+
+export const MARKET_CATEGORIES: MarketCategory[] = ['재련 재료', '각인서', '보석', '기타 재료'];
+
+export interface MarketItem {
+  id: string;
+  category: MarketCategory;
+  grade: ItemGrade;
+  name: string;
+  price: number;
+  changePercent: number;
+  volume: number;
+}
+
+export const marketItems: MarketItem[] = [
+  {id: 'mk1', category: '재련 재료', grade: '고급', name: '운명의 파괴석', price: 158, changePercent: -1.2, volume: 812340},
+  {id: 'mk2', category: '재련 재료', grade: '고급', name: '운명의 수호석', price: 96, changePercent: 0.4, volume: 654210},
+  {id: 'mk3', category: '재련 재료', grade: '희귀', name: '운명의 파편 주머니(중)', price: 412, changePercent: 2.1, volume: 128470},
+  {id: 'mk4', category: '재련 재료', grade: '영웅', name: '아비도스 융화 재료', price: 231, changePercent: 3.6, volume: 341920},
+  {id: 'mk5', category: '재련 재료', grade: '전설', name: '운명의 돌파석', price: 3480, changePercent: -4.8, volume: 18230},
+  {id: 'mk6', category: '재련 재료', grade: '유물', name: '용암의 숨결', price: 890, changePercent: 6.2, volume: 74510},
+  {id: 'mk7', category: '재련 재료', grade: '유물', name: '빙하의 숨결', price: 905, changePercent: 5.1, volume: 71980},
+  {id: 'mk8', category: '각인서', grade: '전설', name: '원한 각인서', price: 108000, changePercent: 0.0, volume: 1240},
+  {id: 'mk9', category: '각인서', grade: '전설', name: '돌격대장 각인서', price: 105400, changePercent: 0.4, volume: 1180},
+  {id: 'mk10', category: '각인서', grade: '영웅', name: '질량 증가 각인서', price: 71600, changePercent: 2.3, volume: 960},
+  {id: 'mk11', category: '각인서', grade: '영웅', name: '예리한 둔기 각인서', price: 108000, changePercent: 0.2, volume: 890},
+  {id: 'mk12', category: '각인서', grade: '영웅', name: '아드레날린 각인서', price: 102000, changePercent: 1.0, volume: 1020},
+  {id: 'mk13', category: '각인서', grade: '희귀', name: '저주받은 인형 각인서', price: 33000, changePercent: -2.6, volume: 2140},
+  {id: 'mk14', category: '각인서', grade: '희귀', name: '기습의 대가 각인서', price: 45530, changePercent: 2.5, volume: 1870},
+  {id: 'mk15', category: '보석', grade: '유물', name: '10레벨 겁화의 보석', price: 42800, changePercent: 1.8, volume: 3210},
+  {id: 'mk16', category: '보석', grade: '유물', name: '10레벨 홍염의 보석', price: 41950, changePercent: 2.0, volume: 3080},
+  {id: 'mk17', category: '보석', grade: '전설', name: '9레벨 멸화의 보석', price: 21400, changePercent: -0.9, volume: 4520},
+  {id: 'mk18', category: '보석', grade: '전설', name: '9레벨 작열의 보석', price: 20870, changePercent: -1.1, volume: 4310},
+  {id: 'mk19', category: '기타 재료', grade: '희귀', name: '명예의 파편 주머니(대)', price: 2650, changePercent: 0.6, volume: 56210},
+  {id: 'mk20', category: '기타 재료', grade: '고급', name: '실링 주머니(특급)', price: 189, changePercent: -0.3, volume: 402310},
+  {id: 'mk21', category: '기타 재료', grade: '희귀', name: '카오스 던전 열쇠', price: 890, changePercent: 4.4, volume: 61820},
+  {id: 'mk22', category: '기타 재료', grade: '고급', name: '위대한 미지의 조각', price: 156, changePercent: -5.7, volume: 91230}
+];
+
+// ---------------------------------------------------------------------------
+// 캐릭터 정보
+// ---------------------------------------------------------------------------
+
+export interface CharacterStat {
+  label: string;
+  value: number;
+}
+
+export interface EquipmentPiece {
+  slot: string;
+  name: string;
+  grade: ItemGrade;
+  quality: number;
+  level: string;
+}
+
+export interface EngravingEntry {
+  name: string;
+  level: 1 | 2 | 3;
+}
+
+export interface GemEntry {
+  name: string;
+  level: number;
+  skill: string;
+}
+
+export interface CharacterProfile {
+  name: string;
+  server: string;
+  guild: string;
+  className: string;
+  title: string;
+  itemLevel: string;
+  combatPower: number;
+  portraitUrl: string;
+  stats: CharacterStat[];
+  equipment: EquipmentPiece[];
+  accessories: EquipmentPiece[];
+  engravings: EngravingEntry[];
+  gems: GemEntry[];
+}
+
+export const defaultCharacterName = '은빛부검사';
+
+export const characterProfiles: Record<string, CharacterProfile> = {
+  은빛부검사: {
+    name: '은빛부검사',
+    server: '루페온',
+    guild: '아르크 유랑단',
+    className: '버서커',
+    title: '카양겔의 정복자',
+    itemLevel: '1710.00',
+    combatPower: 28450,
+    portraitUrl: '/images/characters/silver-berserker.png',
+    stats: [
+      {label: '치명', value: 2840},
+      {label: '특화', value: 1520},
+      {label: '신속', value: 620},
+      {label: '제압', value: 480},
+      {label: '인내', value: 340},
+      {label: '숙련', value: 210}
+    ],
+    equipment: [
+      {slot: '무기', name: '반신의 대검', grade: '고대', quality: 100, level: '+25'},
+      {slot: '머리', name: '반신의 견갑', grade: '고대', quality: 98, level: '+25'},
+      {slot: '어깨', name: '반신의 견갑', grade: '고대', quality: 95, level: '+25'},
+      {slot: '상의', name: '반신의 갑주', grade: '고대', quality: 92, level: '+25'},
+      {slot: '하의', name: '반신의 갑주', grade: '고대', quality: 100, level: '+25'},
+      {slot: '장갑', name: '반신의 손목보호구', grade: '고대', quality: 88, level: '+25'}
+    ],
+    accessories: [
+      {slot: '목걸이', name: '카양겔의 목걸이', grade: '유물', quality: 90, level: '연마 x3'},
+      {slot: '귀걸이', name: '카양겔의 귀걸이', grade: '유물', quality: 85, level: '연마 x3'},
+      {slot: '귀걸이', name: '카양겔의 귀걸이', grade: '유물', quality: 78, level: '연마 x3'},
+      {slot: '반지', name: '카양겔의 반지', grade: '유물', quality: 95, level: '연마 x3'},
+      {slot: '반지', name: '카양겔의 반지', grade: '유물', quality: 63, level: '연마 x3'},
+      {slot: '팔찌', name: '고대의 팔찌', grade: '고대', quality: 0, level: '특옵 4'}
+    ],
+    engravings: [
+      {name: '광기', level: 3},
+      {name: '내가 죽으면 니도 죽어', level: 3},
+      {name: '중갑 착용', level: 3},
+      {name: '슈퍼 차지', level: 2},
+      {name: '아드레날린', level: 2}
+    ],
+    gems: [
+      {name: '10레벨 겁화의 보석', level: 10, skill: '분노의 강타'},
+      {name: '10레벨 홍염의 보석', level: 10, skill: '휩쓸기'},
+      {name: '9레벨 겁화의 보석', level: 9, skill: '광란의 소용돌이'},
+      {name: '9레벨 홍염의 보석', level: 9, skill: '대지 분쇄'}
+    ]
+  },
+  카제하야: {
+    name: '카제하야',
+    server: '실리안',
+    guild: '폭풍의 눈',
+    className: '기상술사',
+    title: '아르크시아의 수호자',
+    itemLevel: '1700.83',
+    combatPower: 26980,
+    portraitUrl: '/images/characters/silver-berserker.png',
+    stats: [
+      {label: '특화', value: 3120},
+      {label: '신속', value: 1680},
+      {label: '치명', value: 540},
+      {label: '제압', value: 410},
+      {label: '인내', value: 280},
+      {label: '숙련', value: 190}
+    ],
+    equipment: [
+      {slot: '무기', name: '이스더의 지팡이', grade: '고대', quality: 97, level: '+24'},
+      {slot: '머리', name: '이스더의 로브', grade: '고대', quality: 93, level: '+24'},
+      {slot: '어깨', name: '이스더의 로브', grade: '고대', quality: 90, level: '+24'},
+      {slot: '상의', name: '이스더의 장의', grade: '고대', quality: 100, level: '+24'},
+      {slot: '하의', name: '이스더의 장의', grade: '고대', quality: 84, level: '+24'},
+      {slot: '장갑', name: '이스더의 장갑', grade: '고대', quality: 91, level: '+24'}
+    ],
+    accessories: [
+      {slot: '목걸이', name: '아그리스의 목걸이', grade: '유물', quality: 88, level: '연마 x3'},
+      {slot: '귀걸이', name: '아그리스의 귀걸이', grade: '유물', quality: 92, level: '연마 x3'},
+      {slot: '귀걸이', name: '아그리스의 귀걸이', grade: '유물', quality: 70, level: '연마 x3'},
+      {slot: '반지', name: '아그리스의 반지', grade: '유물', quality: 81, level: '연마 x3'},
+      {slot: '반지', name: '아그리스의 반지', grade: '유물', quality: 76, level: '연마 x3'},
+      {slot: '팔찌', name: '고대의 팔찌', grade: '고대', quality: 0, level: '특옵 3'}
+    ],
+    engravings: [
+      {name: '환수 각성', level: 3},
+      {name: '자연의 힘', level: 3},
+      {name: '아드레날린', level: 2},
+      {name: '원한', level: 2},
+      {name: '슈퍼 차지', level: 1}
+    ],
+    gems: [
+      {name: '10레벨 겁화의 보석', level: 10, skill: '폭풍우'},
+      {name: '9레벨 홍염의 보석', level: 9, skill: '눈보라'},
+      {name: '9레벨 겁화의 보석', level: 9, skill: '벼락'},
+      {name: '8레벨 홍염의 보석', level: 8, skill: '토네이도'}
+    ]
+  }
+};
+
+// ---------------------------------------------------------------------------
+// 경매장
+// ---------------------------------------------------------------------------
+
+export type AuctionCategory = '무기' | '방어구' | '악세서리' | '각인서' | '보석';
+
+export const AUCTION_CATEGORIES: AuctionCategory[] = ['무기', '방어구', '악세서리', '각인서', '보석'];
+
+export interface AuctionListing {
+  id: string;
+  category: AuctionCategory;
+  grade: ItemGrade;
+  name: string;
+  detail: string;
+  quality?: number;
+  buyPrice: number;
+  remaining: string;
+}
+
+export const auctionListings: AuctionListing[] = [
+  {
+    id: 'au1',
+    category: '무기',
+    grade: '고대',
+    name: '반신의 대검',
+    detail: '상급 재련 +25 · 버서커',
+    quality: 100,
+    buyPrice: 4820000,
+    remaining: '11시간 20분'
+  },
+  {
+    id: 'au2',
+    category: '방어구',
+    grade: '고대',
+    name: '반신의 갑주(상의)',
+    detail: '상급 재련 +23 · 전사 공용',
+    quality: 92,
+    buyPrice: 1650000,
+    remaining: '3시간 05분'
+  },
+  {
+    id: 'au3',
+    category: '악세서리',
+    grade: '유물',
+    name: '카양겔의 목걸이',
+    detail: '특성 치명 +390 / 특화 +195',
+    quality: 88,
+    buyPrice: 285000,
+    remaining: '22시간 40분'
+  },
+  {
+    id: 'au4',
+    category: '악세서리',
+    grade: '유물',
+    name: '카양겔의 반지',
+    detail: '추가 피해 +2.6% / 낙인력 +5.5%',
+    quality: 74,
+    buyPrice: 198000,
+    remaining: '1시간 12분'
+  },
+  {
+    id: 'au5',
+    category: '악세서리',
+    grade: '고대',
+    name: '고대의 팔찌',
+    detail: '특옵 4개 · 치명타 적중률 +6%',
+    buyPrice: 620000,
+    remaining: '5시간 50분'
+  },
+  {
+    id: 'au6',
+    category: '각인서',
+    grade: '전설',
+    name: '원한 각인서',
+    detail: '1레벨 각인 재료',
+    buyPrice: 108000,
+    remaining: '18시간 00분'
+  },
+  {
+    id: 'au7',
+    category: '각인서',
+    grade: '영웅',
+    name: '돌격대장 각인서',
+    detail: '1레벨 각인 재료',
+    buyPrice: 105400,
+    remaining: '9시간 30분'
+  },
+  {
+    id: 'au8',
+    category: '보석',
+    grade: '유물',
+    name: '10레벨 겁화의 보석',
+    detail: '피해량 +18% / 쿨타임 감소 +14%',
+    buyPrice: 42800,
+    remaining: '2시간 45분'
+  },
+  {
+    id: 'au9',
+    category: '보석',
+    grade: '전설',
+    name: '9레벨 멸화의 보석',
+    detail: '피해량 +16% / 쿨타임 감소 +12%',
+    buyPrice: 21400,
+    remaining: '14시간 15분'
+  },
+  {
+    id: 'au10',
+    category: '방어구',
+    grade: '유물',
+    name: '이스더의 로브(어깨)',
+    detail: '상급 재련 +18 · 마법사 공용',
+    quality: 65,
+    buyPrice: 980000,
+    remaining: '6시간 40분'
+  }
+];
