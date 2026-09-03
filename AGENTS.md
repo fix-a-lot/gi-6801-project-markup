@@ -25,7 +25,14 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 - **로아 API**: 로스트아크가 제공하는 공식 Open API
 - **로아 데이터**: Open API가 제공하는 데이터
-- **로아와**: 사이트 디자인 참고용 사이트 [https://loawa.com/](https://loawa.com/)
+
+### 경쟁 사이트
+
+- [로아와](https://loawa.com/)
+- [로아지지](https://loagg.com/)
+- [일로아](https://iloa.gg/)
+- [클로아](https://kloa.gg/)
+- [로스트빌드](https://lostbuilds.com/)
 
 ## Design & Markup
 
