@@ -12,6 +12,7 @@ import {ChzzkStreamers} from '@/components/chzzk-streamers';
 import {CouponCode} from '@/components/coupon-codes';
 import {LoawaServerInfo} from '@/components/registered-communities';
 import {OngoingEvents} from '@/components/active-events';
+import {BigImageBanner} from '@/components/big-image-banner';
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       <main className="mx-auto max-w-[1280px] px-4 py-4 lg:px-6 lg:py-5">
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-[minmax(0,1fr)_320px]">
           <div className="flex flex-col gap-4">
+            <BigImageBanner />
             <QuickLinks />
             <OngoingEvents />
             <InfoTabs />
