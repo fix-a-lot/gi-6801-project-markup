@@ -8,11 +8,11 @@ import Link from 'next/link';
 const SCROLL_AMOUNT = 232; // 카드 너비(224px) + gap(8px) 만큼 한 번에 스크롤
 
 const events = [
-  {title: '아크-베이스', date: '8.19 ~ 10.28', image: '/images/events/arc-base.png'},
-  {title: '뿔가르던 정복전', date: '8.5 ~ 9.16', image: '/images/events/horn-garden-conquest.png'},
-  {title: '네리아의 드레스룸 with 로아', date: '7.22 ~ 9.2', image: '/images/events/neria-dressroom.png'},
-  {title: '던 월드 이벤트', date: '7.8 ~ 9.2', image: '/images/events/dawn-world-event.png'},
-  {title: '차월술사 UPDATE', date: '7.8 ~ 10.14', image: '/images/events/moon-mage-update.png'}
+  {title: '벨가르딘 정복전', date: '8.5 ~ 9.16', image: '/images/events/belgardin-conquest.jpg'},
+  {title: '모코코 베이스 캠프', date: '6.24 ~ 10.14', image: '/images/events/mokoko-base-camp.jpg'},
+  {title: '마하라카 썸머 캠프', date: '6.24 ~ 10.14', image: '/images/events/maharaka-summer-camp.jpg'},
+  {title: '로스트아크 치지직 DROPS 이벤트', date: '8.5 ~ 9.6', image: '/images/events/chzzk-drops.jpg'},
+  {title: '2026 썸머 PC방 PARTY TIME', date: '6.24 ~ 9.9', image: '/images/events/pc-room-party-time.jpg'}
 ];
 
 export function OngoingEvents() {

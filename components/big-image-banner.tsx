@@ -9,8 +9,8 @@ export function BigImageBanner() {
       className="relative block h-[200px] w-full overflow-hidden rounded-md border border-border sm:h-[240px] lg:h-[280px]"
     >
       <Image
-        src="/images/banners/new-class-weather-mage.png"
-        alt="신규 클래스 기상술사 업데이트"
+        src="/images/banners/new-class-dimensionmaster.jpg"
+        alt="신규 클래스 차원술사 업데이트"
         fill
         priority
         sizes="(min-width: 1024px) 960px, 100vw"
@@ -24,8 +24,8 @@ export function BigImageBanner() {
       </span>
 
       <div className="absolute inset-x-4 bottom-4 text-right sm:inset-x-6 sm:bottom-6">
-        <p className="text-[12px] font-medium text-muted">폭풍 속에서 태어난 힘</p>
-        <h2 className="mt-1 text-balance text-xl font-bold text-foreground sm:text-2xl">신규 클래스 기상술사</h2>
+        <p className="text-[12px] font-medium text-muted">공간도, 시간도 결국 내가 다루는 환상일 뿐</p>
+        <h2 className="mt-1 text-balance text-xl font-bold text-foreground sm:text-2xl">신규 클래스 차원술사</h2>
       </div>
     </Link>
   );
