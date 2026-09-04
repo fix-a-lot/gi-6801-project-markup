@@ -18,7 +18,7 @@ export function SidebarPopularCharacters() {
         {popularCharacters.map(c => (
           <li key={c.rank}>
             <Link
-              href={`/character/${encodeURIComponent(c.name)}`}
+              href={`/lostark/character/${encodeURIComponent(c.name)}`}
               className="flex items-center gap-2.5 px-3 py-2 hover:bg-surface-2"
             >
               <span

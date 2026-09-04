@@ -7,19 +7,15 @@ import {Menu, Search, Settings, X} from 'lucide-react';
 import {SITE_NAME} from '@/lib/constants';
 
 const NAV_ITEMS = [
-  {label: '홈', href: '/'},
-  {label: '캐릭터', href: '/character'},
-  {label: '랭킹', href: '/ranking'},
-  {label: '통계', href: '/stats'},
-  {label: '시세', href: '/market'},
-  {label: '경매장', href: '/auction'},
-  {label: '도구', href: '/tools'}
+  {label: '홈', href: '/lostark'},
+  {label: '캐릭터', href: '/lostark/character/AV탑걸'},
+  {label: '시세', href: '/lostark/market'},
+  {label: '경매장', href: '/lostark/auction'},
+  {label: '실험실1', href: '/lostark/lab-1'},
+  {label: '실험실2', href: '/lostark/lab-2'}
 ];
 
-// next.config.ts가 "/" → "/lostark"로 임시 리다이렉트하는 동안
-// 홈 네비게이션 항목은 두 경로 모두를 활성 상태로 인식해야 함.
 function isNavItemActive(pathname: string | null, href: string) {
-  if (href === '/') return pathname === '/' || pathname === '/lostark';
   return pathname === href;
 }
 

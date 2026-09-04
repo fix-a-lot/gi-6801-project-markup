@@ -158,10 +158,22 @@ export interface QuickLink {
 }
 
 export const quickLinks: QuickLink[] = [
-  {id: 'ranking', title: '랭킹', description: '전투력 · 길드 · 레이드 클리어 랭킹', href: '/ranking', icon: 'ranking'},
-  {id: 'stats', title: '통계', description: '직업 분포, 스펙 구간별 통계 분석', href: '/stats', icon: 'stats'},
-  {id: 'market', title: '시세', description: '재련재료 · 각인서 · 유물 시세 조회', href: '/market', icon: 'market'},
-  {id: 'tools', title: '도구', description: '재련 계산기, 카오스던전 보상표', href: '/tools', icon: 'tools'}
+  {
+    id: 'ranking',
+    title: '랭킹',
+    description: '전투력 · 길드 · 레이드 클리어 랭킹',
+    href: '/lostark/ranking',
+    icon: 'ranking'
+  },
+  {id: 'stats', title: '통계', description: '직업 분포, 스펙 구간별 통계 분석', href: '/lostark/stats', icon: 'stats'},
+  {
+    id: 'market',
+    title: '시세',
+    description: '재련재료 · 각인서 · 유물 시세 조회',
+    href: '/lostark/market',
+    icon: 'market'
+  },
+  {id: 'tools', title: '도구', description: '재련 계산기, 카오스던전 보상표', href: '/lostark/tools', icon: 'tools'}
 ];
 
 export interface PopularCharacter {
@@ -261,28 +273,180 @@ export interface MarketItem {
 }
 
 export const marketItems: MarketItem[] = [
-  {id: 'mk1', category: '재련 재료', grade: '고급', name: '운명의 파괴석', price: 158, changePercent: -1.2, volume: 812340},
-  {id: 'mk2', category: '재련 재료', grade: '고급', name: '운명의 수호석', price: 96, changePercent: 0.4, volume: 654210},
-  {id: 'mk3', category: '재련 재료', grade: '희귀', name: '운명의 파편 주머니(중)', price: 412, changePercent: 2.1, volume: 128470},
-  {id: 'mk4', category: '재련 재료', grade: '영웅', name: '아비도스 융화 재료', price: 231, changePercent: 3.6, volume: 341920},
-  {id: 'mk5', category: '재련 재료', grade: '전설', name: '운명의 돌파석', price: 3480, changePercent: -4.8, volume: 18230},
+  {
+    id: 'mk1',
+    category: '재련 재료',
+    grade: '고급',
+    name: '운명의 파괴석',
+    price: 158,
+    changePercent: -1.2,
+    volume: 812340
+  },
+  {
+    id: 'mk2',
+    category: '재련 재료',
+    grade: '고급',
+    name: '운명의 수호석',
+    price: 96,
+    changePercent: 0.4,
+    volume: 654210
+  },
+  {
+    id: 'mk3',
+    category: '재련 재료',
+    grade: '희귀',
+    name: '운명의 파편 주머니(중)',
+    price: 412,
+    changePercent: 2.1,
+    volume: 128470
+  },
+  {
+    id: 'mk4',
+    category: '재련 재료',
+    grade: '영웅',
+    name: '아비도스 융화 재료',
+    price: 231,
+    changePercent: 3.6,
+    volume: 341920
+  },
+  {
+    id: 'mk5',
+    category: '재련 재료',
+    grade: '전설',
+    name: '운명의 돌파석',
+    price: 3480,
+    changePercent: -4.8,
+    volume: 18230
+  },
   {id: 'mk6', category: '재련 재료', grade: '유물', name: '용암의 숨결', price: 890, changePercent: 6.2, volume: 74510},
   {id: 'mk7', category: '재련 재료', grade: '유물', name: '빙하의 숨결', price: 905, changePercent: 5.1, volume: 71980},
   {id: 'mk8', category: '각인서', grade: '전설', name: '원한 각인서', price: 108000, changePercent: 0.0, volume: 1240},
-  {id: 'mk9', category: '각인서', grade: '전설', name: '돌격대장 각인서', price: 105400, changePercent: 0.4, volume: 1180},
-  {id: 'mk10', category: '각인서', grade: '영웅', name: '질량 증가 각인서', price: 71600, changePercent: 2.3, volume: 960},
-  {id: 'mk11', category: '각인서', grade: '영웅', name: '예리한 둔기 각인서', price: 108000, changePercent: 0.2, volume: 890},
-  {id: 'mk12', category: '각인서', grade: '영웅', name: '아드레날린 각인서', price: 102000, changePercent: 1.0, volume: 1020},
-  {id: 'mk13', category: '각인서', grade: '희귀', name: '저주받은 인형 각인서', price: 33000, changePercent: -2.6, volume: 2140},
-  {id: 'mk14', category: '각인서', grade: '희귀', name: '기습의 대가 각인서', price: 45530, changePercent: 2.5, volume: 1870},
-  {id: 'mk15', category: '보석', grade: '유물', name: '10레벨 겁화의 보석', price: 42800, changePercent: 1.8, volume: 3210},
-  {id: 'mk16', category: '보석', grade: '유물', name: '10레벨 홍염의 보석', price: 41950, changePercent: 2.0, volume: 3080},
-  {id: 'mk17', category: '보석', grade: '전설', name: '9레벨 멸화의 보석', price: 21400, changePercent: -0.9, volume: 4520},
-  {id: 'mk18', category: '보석', grade: '전설', name: '9레벨 작열의 보석', price: 20870, changePercent: -1.1, volume: 4310},
-  {id: 'mk19', category: '기타 재료', grade: '희귀', name: '명예의 파편 주머니(대)', price: 2650, changePercent: 0.6, volume: 56210},
-  {id: 'mk20', category: '기타 재료', grade: '고급', name: '실링 주머니(특급)', price: 189, changePercent: -0.3, volume: 402310},
-  {id: 'mk21', category: '기타 재료', grade: '희귀', name: '카오스 던전 열쇠', price: 890, changePercent: 4.4, volume: 61820},
-  {id: 'mk22', category: '기타 재료', grade: '고급', name: '위대한 미지의 조각', price: 156, changePercent: -5.7, volume: 91230}
+  {
+    id: 'mk9',
+    category: '각인서',
+    grade: '전설',
+    name: '돌격대장 각인서',
+    price: 105400,
+    changePercent: 0.4,
+    volume: 1180
+  },
+  {
+    id: 'mk10',
+    category: '각인서',
+    grade: '영웅',
+    name: '질량 증가 각인서',
+    price: 71600,
+    changePercent: 2.3,
+    volume: 960
+  },
+  {
+    id: 'mk11',
+    category: '각인서',
+    grade: '영웅',
+    name: '예리한 둔기 각인서',
+    price: 108000,
+    changePercent: 0.2,
+    volume: 890
+  },
+  {
+    id: 'mk12',
+    category: '각인서',
+    grade: '영웅',
+    name: '아드레날린 각인서',
+    price: 102000,
+    changePercent: 1.0,
+    volume: 1020
+  },
+  {
+    id: 'mk13',
+    category: '각인서',
+    grade: '희귀',
+    name: '저주받은 인형 각인서',
+    price: 33000,
+    changePercent: -2.6,
+    volume: 2140
+  },
+  {
+    id: 'mk14',
+    category: '각인서',
+    grade: '희귀',
+    name: '기습의 대가 각인서',
+    price: 45530,
+    changePercent: 2.5,
+    volume: 1870
+  },
+  {
+    id: 'mk15',
+    category: '보석',
+    grade: '유물',
+    name: '10레벨 겁화의 보석',
+    price: 42800,
+    changePercent: 1.8,
+    volume: 3210
+  },
+  {
+    id: 'mk16',
+    category: '보석',
+    grade: '유물',
+    name: '10레벨 홍염의 보석',
+    price: 41950,
+    changePercent: 2.0,
+    volume: 3080
+  },
+  {
+    id: 'mk17',
+    category: '보석',
+    grade: '전설',
+    name: '9레벨 멸화의 보석',
+    price: 21400,
+    changePercent: -0.9,
+    volume: 4520
+  },
+  {
+    id: 'mk18',
+    category: '보석',
+    grade: '전설',
+    name: '9레벨 작열의 보석',
+    price: 20870,
+    changePercent: -1.1,
+    volume: 4310
+  },
+  {
+    id: 'mk19',
+    category: '기타 재료',
+    grade: '희귀',
+    name: '명예의 파편 주머니(대)',
+    price: 2650,
+    changePercent: 0.6,
+    volume: 56210
+  },
+  {
+    id: 'mk20',
+    category: '기타 재료',
+    grade: '고급',
+    name: '실링 주머니(특급)',
+    price: 189,
+    changePercent: -0.3,
+    volume: 402310
+  },
+  {
+    id: 'mk21',
+    category: '기타 재료',
+    grade: '희귀',
+    name: '카오스 던전 열쇠',
+    price: 890,
+    changePercent: 4.4,
+    volume: 61820
+  },
+  {
+    id: 'mk22',
+    category: '기타 재료',
+    grade: '고급',
+    name: '위대한 미지의 조각',
+    price: 156,
+    changePercent: -5.7,
+    volume: 91230
+  }
 ];
 
 // ---------------------------------------------------------------------------

@@ -59,7 +59,7 @@ export function HeroSearch() {
           {POPULAR_SEARCHES.map(name => (
             <Link
               key={name}
-              href={`/character/${encodeURIComponent(name)}`}
+              href={`/lostark/character/${encodeURIComponent(name)}`}
               className="rounded-sm border border-border px-2 py-0.5 font-mono text-muted transition-colors hover:border-primary/60 hover:text-foreground"
             >
               {name}
