@@ -708,3 +708,518 @@ export const auctionListings: AuctionListing[] = [
     remaining: '6시간 40분'
   }
 ];
+
+// ---------------------------------------------------------------------------
+// 실험실1 — 랭킹 · 탐색
+// ---------------------------------------------------------------------------
+
+export type RankingMetric = '전투력' | '낙원력' | '팔찌효율' | '젬효율';
+export type RankingRole = '전체' | '딜러' | '서포터';
+
+export const RANKING_METRICS: RankingMetric[] = ['전투력', '낙원력', '팔찌효율', '젬효율'];
+export const RANKING_ROLES: RankingRole[] = ['전체', '딜러', '서포터'];
+
+export interface RankingCharacterEntry {
+  name: string;
+  server: string;
+  className: string;
+  role: '딜러' | '서포터';
+  combatPower: number;
+  paradisePower: number;
+  braceletEfficiency: number;
+  gemEfficiency: number;
+}
+
+export const rankingCharacters: RankingCharacterEntry[] = [
+  {
+    name: '은빛부검사',
+    server: '루페온',
+    className: '버서커',
+    role: '딜러',
+    combatPower: 28450,
+    paradisePower: 9120,
+    braceletEfficiency: 96.4,
+    gemEfficiency: 91.2
+  },
+  {
+    name: '카제하야',
+    server: '실리안',
+    className: '기상술사',
+    role: '딜러',
+    combatPower: 26980,
+    paradisePower: 8840,
+    braceletEfficiency: 89.1,
+    gemEfficiency: 88.7
+  },
+  {
+    name: '무명의창잡이',
+    server: '아만',
+    className: '창술사',
+    role: '딜러',
+    combatPower: 25510,
+    paradisePower: 8420,
+    braceletEfficiency: 92.8,
+    gemEfficiency: 85.3
+  },
+  {
+    name: '달빛서포터',
+    server: '카마인',
+    className: '홀리나이트',
+    role: '서포터',
+    combatPower: 19870,
+    paradisePower: 7210,
+    braceletEfficiency: 78.5,
+    gemEfficiency: 94.6
+  },
+  {
+    name: '칼바람소서리스',
+    server: '루페온',
+    className: '소서리스',
+    role: '딜러',
+    combatPower: 24390,
+    paradisePower: 8010,
+    braceletEfficiency: 94.2,
+    gemEfficiency: 82.9
+  },
+  {
+    name: '은하수바드',
+    server: '카마인',
+    className: '바드',
+    role: '서포터',
+    combatPower: 18640,
+    paradisePower: 6870,
+    braceletEfficiency: 81.9,
+    gemEfficiency: 90.4
+  },
+  {
+    name: '붉은칼날데모닉',
+    server: '실리안',
+    className: '데모닉',
+    role: '딜러',
+    combatPower: 23980,
+    paradisePower: 7920,
+    braceletEfficiency: 87.6,
+    gemEfficiency: 79.8
+  },
+  {
+    name: '고요한스트라이커',
+    server: '아만',
+    className: '스트라이커',
+    role: '딜러',
+    combatPower: 22740,
+    paradisePower: 7480,
+    braceletEfficiency: 90.3,
+    gemEfficiency: 83.5
+  }
+];
+
+export interface CompareCharacterEntry {
+  name: string;
+  server: string;
+  className: string;
+  itemLevel: string;
+  combatPower: number;
+  engravings: string[];
+}
+
+export const compareCharacterPool: CompareCharacterEntry[] = [
+  {
+    name: '은빛부검사',
+    server: '루페온',
+    className: '버서커',
+    itemLevel: '1710.00',
+    combatPower: 28450,
+    engravings: ['광기 3', '중갑 착용 3', '슈퍼 차지 2']
+  },
+  {
+    name: '카제하야',
+    server: '실리안',
+    className: '기상술사',
+    itemLevel: '1700.83',
+    combatPower: 26980,
+    engravings: ['환수 각성 3', '자연의 힘 3', '아드레날린 2']
+  },
+  {
+    name: '무명의창잡이',
+    server: '아만',
+    className: '창술사',
+    itemLevel: '1695.00',
+    combatPower: 25510,
+    engravings: ['결투의 대가 3', '예리한 둔기 3', '원한 2']
+  },
+  {
+    name: '달빛서포터',
+    server: '카마인',
+    className: '홀리나이트',
+    itemLevel: '1680.00',
+    combatPower: 19870,
+    engravings: ['축복의 오라 3', '아드레날린 2', '정화 지속 2']
+  },
+  {
+    name: '칼바람소서리스',
+    server: '루페온',
+    className: '소서리스',
+    itemLevel: '1670.42',
+    combatPower: 24390,
+    engravings: ['환수 각성 3', '점화 3', '슈퍼 차지 1']
+  },
+  {
+    name: '은하수바드',
+    server: '카마인',
+    className: '바드',
+    itemLevel: '1640.00',
+    combatPower: 18640,
+    engravings: ['영혼의 소리 3', '아드레날린 2', '원한 1']
+  }
+];
+
+export interface GuildRankingEntry {
+  rank: number;
+  name: string;
+  server: string;
+  memberCount: number;
+  representativePower: number;
+}
+
+export const guildRankings: GuildRankingEntry[] = [
+  {rank: 1, name: '아르크 유랑단', server: '루페온', memberCount: 84, representativePower: 28450},
+  {rank: 2, name: '폭풍의 눈', server: '실리안', memberCount: 79, representativePower: 26980},
+  {rank: 3, name: '카양겔 원정대', server: '아만', memberCount: 91, representativePower: 25510},
+  {rank: 4, name: '새벽을 여는 자', server: '카마인', memberCount: 68, representativePower: 22740},
+  {rank: 5, name: '고요한 항구', server: '니나브', memberCount: 73, representativePower: 21980},
+  {rank: 6, name: '별빛 수호대', server: '루페온', memberCount: 65, representativePower: 20870},
+  {rank: 7, name: '심연의 사도', server: '카제로스', memberCount: 58, representativePower: 19640},
+  {rank: 8, name: '떠돌이 상단', server: '실리안', memberCount: 52, representativePower: 18420}
+];
+
+export interface EngravingComboStat {
+  combo: string;
+  rate: number;
+}
+
+export interface GemComboStat {
+  combo: string;
+  rate: number;
+}
+
+export interface ClassSettingStat {
+  className: string;
+  engravingCombos: EngravingComboStat[];
+  gemCombos: GemComboStat[];
+}
+
+export const classSettingStats: ClassSettingStat[] = [
+  {
+    className: '버서커',
+    engravingCombos: [
+      {combo: '광기 · 중갑 착용 · 슈퍼 차지', rate: 62.4},
+      {combo: '광기 · 예리한 둔기 · 아드레날린', rate: 24.1},
+      {combo: '중갑 착용 · 돌격대장 · 원한', rate: 13.5}
+    ],
+    gemCombos: [
+      {combo: '겁화 4 · 홍염 4', rate: 71.8},
+      {combo: '겁화 3 · 홍염 5', rate: 18.6},
+      {combo: '멸화 4 · 작열 4', rate: 9.6}
+    ]
+  },
+  {
+    className: '소서리스',
+    engravingCombos: [
+      {combo: '환수 각성 · 점화 · 슈퍼 차지', rate: 54.2},
+      {combo: '환수 각성 · 점화 · 아드레날린', rate: 31.7},
+      {combo: '점화 · 원한 · 돌격대장', rate: 14.1}
+    ],
+    gemCombos: [
+      {combo: '겁화 5 · 홍염 3', rate: 66.3},
+      {combo: '겁화 4 · 홍염 4', rate: 22.9},
+      {combo: '멸화 4 · 작열 4', rate: 10.8}
+    ]
+  },
+  {
+    className: '홀리나이트',
+    engravingCombos: [
+      {combo: '축복의 오라 · 아드레날린 · 정화 지속', rate: 58.9},
+      {combo: '축복의 오라 · 정화 지속 · 원한', rate: 27.4},
+      {combo: '축복의 오라 · 아드레날린 · 돌격대장', rate: 13.7}
+    ],
+    gemCombos: [
+      {combo: '겁화 4 · 홍염 4', rate: 69.1},
+      {combo: '멸화 4 · 작열 4', rate: 20.5},
+      {combo: '겁화 3 · 홍염 5', rate: 10.4}
+    ]
+  },
+  {
+    className: '바드',
+    engravingCombos: [
+      {combo: '영혼의 소리 · 아드레날린 · 원한', rate: 60.7},
+      {combo: '영혼의 소리 · 정화 지속 · 원한', rate: 25.8},
+      {combo: '영혼의 소리 · 아드레날린 · 돌격대장', rate: 13.5}
+    ],
+    gemCombos: [
+      {combo: '겁화 4 · 홍염 4', rate: 64.2},
+      {combo: '멸화 5 · 작열 3', rate: 23.1},
+      {combo: '겁화 3 · 홍염 5', rate: 12.7}
+    ]
+  }
+];
+
+export interface MerchantEntry {
+  server: string;
+  location: string;
+  items: string[];
+  appearsAt: string;
+  remaining: string;
+}
+
+export const travelingMerchants: MerchantEntry[] = [
+  {
+    server: '루페온',
+    location: '베른 남부 - 페리아 마을',
+    items: ['오레하 융화 재료', '카르마', '위대한 미지의 조각'],
+    appearsAt: '02.24 20:00',
+    remaining: '2시간 10분'
+  },
+  {
+    server: '실리안',
+    location: '아르디타 - 항구 마을',
+    items: ['운명의 파편 주머니(대)', '명예의 파편 주머니(중)'],
+    appearsAt: '02.24 21:30',
+    remaining: '3시간 40분'
+  },
+  {
+    server: '아만',
+    location: '토토이크 - 오르작 마을',
+    items: ['아비도스 융화 재료', '실링 주머니(특급)'],
+    appearsAt: '02.24 19:00',
+    remaining: '40분'
+  },
+  {
+    server: '카마인',
+    location: '페이튼 - 프로키온 대성당',
+    items: ['카오스 던전 열쇠', '위대한 미지의 조각'],
+    appearsAt: '02.25 00:00',
+    remaining: '5시간 50분'
+  },
+  {
+    server: '니나브',
+    location: '슬랜 대성채 - 벨투르 항구',
+    items: ['운명의 파편 주머니(중)', '오레하 융화 재료'],
+    appearsAt: '02.24 22:15',
+    remaining: '4시간 25분'
+  },
+  {
+    server: '카제로스',
+    location: '로헨델 - 은둔자의 마을',
+    items: ['명예의 파편 주머니(대)', '카르마'],
+    appearsAt: '02.25 01:00',
+    remaining: '6시간 30분'
+  }
+];
+
+export type FieldCountdownCategory = '필드보스' | '모험섬' | '카오스게이트' | '유령선';
+
+export interface FieldCountdownEntry {
+  id: string;
+  name: string;
+  category: FieldCountdownCategory;
+  server: string;
+  remainingSeconds: number;
+}
+
+export const fieldCountdowns: FieldCountdownEntry[] = [
+  {id: 'fc1', name: '베히모스', category: '필드보스', server: '실리안', remainingSeconds: 612},
+  {id: 'fc2', name: '이내르시아', category: '모험섬', server: '루페온', remainingSeconds: 1840},
+  {id: 'fc3', name: '카오스게이트: 태동하는 위협', category: '카오스게이트', server: '아만', remainingSeconds: 305},
+  {id: 'fc4', name: '베른 남부 유령선', category: '유령선', server: '카마인', remainingSeconds: 4260},
+  {id: 'fc5', name: '우드 왕 세뇨크', category: '필드보스', server: '루페온', remainingSeconds: 2530},
+  {id: 'fc6', name: '필로스', category: '모험섬', server: '니나브', remainingSeconds: 95}
+];
+
+// ---------------------------------------------------------------------------
+// 실험실2 — 계산기 · 시뮬레이션
+// ---------------------------------------------------------------------------
+
+export interface RefineMaterial {
+  name: string;
+  count: number;
+  unitPrice: number;
+}
+
+export interface RefineStage {
+  stage: string;
+  successRate: number;
+  additionalGoldCost: number;
+  materials: RefineMaterial[];
+}
+
+export const refineStages: RefineStage[] = [
+  {
+    stage: '+11',
+    successRate: 40,
+    additionalGoldCost: 1200,
+    materials: [
+      {name: '운명의 파괴석', count: 32, unitPrice: 158},
+      {name: '운명의 수호석', count: 24, unitPrice: 96},
+      {name: '운명의 파편 주머니(중)', count: 4, unitPrice: 412}
+    ]
+  },
+  {
+    stage: '+15',
+    successRate: 27,
+    additionalGoldCost: 3400,
+    materials: [
+      {name: '운명의 파괴석', count: 48, unitPrice: 158},
+      {name: '운명의 수호석', count: 36, unitPrice: 96},
+      {name: '아비도스 융화 재료', count: 6, unitPrice: 231}
+    ]
+  },
+  {
+    stage: '+20',
+    successRate: 12,
+    additionalGoldCost: 9800,
+    materials: [
+      {name: '아비도스 융화 재료', count: 18, unitPrice: 231},
+      {name: '운명의 돌파석', count: 2, unitPrice: 3480},
+      {name: '용암의 숨결', count: 4, unitPrice: 890}
+    ]
+  },
+  {
+    stage: '+24',
+    successRate: 5,
+    additionalGoldCost: 22600,
+    materials: [
+      {name: '운명의 돌파석', count: 4, unitPrice: 3480},
+      {name: '용암의 숨결', count: 10, unitPrice: 890},
+      {name: '빙하의 숨결', count: 10, unitPrice: 905}
+    ]
+  },
+  {
+    stage: '+25',
+    successRate: 3,
+    additionalGoldCost: 31200,
+    materials: [
+      {name: '운명의 돌파석', count: 6, unitPrice: 3480},
+      {name: '용암의 숨결', count: 14, unitPrice: 890},
+      {name: '빙하의 숨결', count: 14, unitPrice: 905}
+    ]
+  }
+];
+
+export type BraceletTier = 'S' | 'A' | 'B' | 'C';
+
+export interface BraceletOptionEntry {
+  id: string;
+  name: string;
+  tier: BraceletTier;
+  score: number;
+}
+
+export const braceletOptions: BraceletOptionEntry[] = [
+  {id: 'br1', name: '특화 +11.65%', tier: 'S', score: 32},
+  {id: 'br2', name: '치명타 적중률 +6%', tier: 'S', score: 30},
+  {id: 'br3', name: '치명 +11.65%', tier: 'A', score: 24},
+  {id: 'br4', name: '공격력 +5.4%', tier: 'A', score: 22},
+  {id: 'br5', name: '무기 공격력 +7.2%', tier: 'B', score: 16},
+  {id: 'br6', name: '최대 생명력 +11.65%', tier: 'C', score: 8},
+  {id: 'br7', name: '전투 자원 획득량 +6.5%', tier: 'B', score: 14},
+  {id: 'br8', name: '이동 속도 +5%', tier: 'C', score: 6}
+];
+
+export const AUCTION_FEE_RATE = 0.05;
+
+export type DpsTier = 'S' | 'A' | 'B';
+
+export interface DpsTierEntry {
+  className: string;
+  role: '딜러' | '서포터';
+  tier: DpsTier;
+  note: string;
+}
+
+export const dpsTierList: DpsTierEntry[] = [
+  {className: '버서커', role: '딜러', tier: 'S', note: '고정 피해 · 진입 난이도 낮음'},
+  {className: '기상술사', role: '딜러', tier: 'S', note: '광역 대미지 압도적'},
+  {className: '데모닉', role: '딜러', tier: 'S', note: '변신 후 극딜 구간 우수'},
+  {className: '창술사', role: '딜러', tier: 'A', note: '안정적인 지속 딜'},
+  {className: '소서리스', role: '딜러', tier: 'A', note: '스킬 운용 난이도 높음'},
+  {className: '스트라이커', role: '딜러', tier: 'A', note: '기동성과 딜 밸런스 양호'},
+  {className: '블래스터', role: '딜러', tier: 'B', note: '재장전 관리 필요'},
+  {className: '검성', role: '딜러', tier: 'B', note: '진입 장벽 다소 높음'},
+  {className: '홀리나이트', role: '서포터', tier: 'S', note: '아군 보호 능력 최상위'},
+  {className: '바드', role: '서포터', tier: 'S', note: '낙인력 · 실드 밸런스 우수'},
+  {className: '도화가', role: '서포터', tier: 'A', note: '기동성 우수, 학습 필요'}
+];
+
+export interface SimulatorSlider {
+  key: 'critChance' | 'critDamage' | 'extraDamage' | 'weaponAttack';
+  label: string;
+  min: number;
+  max: number;
+  defaultValue: number;
+  step: number;
+  unit: string;
+}
+
+export const simulatorSliders: SimulatorSlider[] = [
+  {key: 'critChance', label: '치명타 적중률', min: 0, max: 100, defaultValue: 70, step: 1, unit: '%'},
+  {key: 'critDamage', label: '치명타 피해', min: 100, max: 300, defaultValue: 200, step: 5, unit: '%'},
+  {key: 'extraDamage', label: '추가 피해', min: 0, max: 50, defaultValue: 12, step: 1, unit: '%'},
+  {key: 'weaponAttack', label: '무기 공격력', min: 1000, max: 2000, defaultValue: 1500, step: 10, unit: ''}
+];
+
+export interface PriceHistoryPoint {
+  date: string;
+  price: number;
+}
+
+export interface PriceTrendItem {
+  id: string;
+  name: string;
+  grade: ItemGrade;
+  history: PriceHistoryPoint[];
+}
+
+export const priceTrendItems: PriceTrendItem[] = [
+  {
+    id: 'pt1',
+    name: '10레벨 겁화의 보석',
+    grade: '유물',
+    history: [
+      {date: '02.18', price: 39200},
+      {date: '02.19', price: 40100},
+      {date: '02.20', price: 41800},
+      {date: '02.21', price: 40950},
+      {date: '02.22', price: 41300},
+      {date: '02.23', price: 42100},
+      {date: '02.24', price: 42800}
+    ]
+  },
+  {
+    id: 'pt2',
+    name: '원한 각인서',
+    grade: '전설',
+    history: [
+      {date: '02.18', price: 112400},
+      {date: '02.19', price: 111200},
+      {date: '02.20', price: 109800},
+      {date: '02.21', price: 110500},
+      {date: '02.22', price: 109100},
+      {date: '02.23', price: 108400},
+      {date: '02.24', price: 108000}
+    ]
+  },
+  {
+    id: 'pt3',
+    name: '운명의 돌파석',
+    grade: '전설',
+    history: [
+      {date: '02.18', price: 3120},
+      {date: '02.19', price: 3210},
+      {date: '02.20', price: 3350},
+      {date: '02.21', price: 3480},
+      {date: '02.22', price: 3620},
+      {date: '02.23', price: 3550},
+      {date: '02.24', price: 3480}
+    ]
+  }
+];
