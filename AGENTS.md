@@ -10,7 +10,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 # AGENTS.md
 
-이 저장소는 `project-l-6801` 원본에서 v0 / Claude Design 작업에 필요한 마크업·디자인 관련 파일만 추출한 서브셋이다. DB, API 연동, 크론잡 등 백엔드 로직은 포함하지 않는다.
+이 저장소는 `gi-6801-project` 원본에서 v0 / Claude Design 작업에 필요한 마크업·디자인 관련 파일만 추출한 서브셋이다. DB, API 연동, 크론잡 등 백엔드 로직은 포함하지 않는다.
 
 ## Documentation
 
