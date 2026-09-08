@@ -23,6 +23,8 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 ## Terms
 
+에이전트와의 채팅 세션, 스킬 등에서 사용자가 언급하는 용어의 정의.
+
 - **로아 API**: 로스트아크가 제공하는 공식 Open API
 - **로아 데이터**: Open API가 제공하는 데이터
 
